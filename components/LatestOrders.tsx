@@ -87,7 +87,7 @@ const LatestOrders = async () => {
                 </div>
                 <div className=" flex flex-col items-center">
                 <div
-                  className={`h-[40px] w-[94px] bg-[${bgColorLight}] rounded-[4px] flex items-center justify-center dark:bg-[${bgColorDark}]  text-[#0C191E] dark:text-[#0C191E]text-[14px] font-poppins-medium`}
+                  className={`h-[40px] w-[94px] bg-[#FCFEB2] rounded-[4px] flex items-center justify-center dark:bg-[#CACC33]  text-[#0C191E] dark:text-[#0C191E]text-[14px] font-poppins-medium`}
                 >
                   {order.orderStatus}
                 </div>
