@@ -22,7 +22,7 @@ const PieChart = ({ chartData }: { chartData: any }) => {
     },
   };
   return (
-    <div className=" w-1/2 h-[440px] bg-[#ffffff] dark:bg-[#0D0D0D] rounded-[16px]">
+    <div className="">
       <div className=" p-7">
         <div className=" flex items-center justify-between">
         <h3 className=" font-poppins-bold text-[32px] text-[#0C191E] dark:text-[#ffffff]">
@@ -30,7 +30,7 @@ const PieChart = ({ chartData }: { chartData: any }) => {
           </h3>
           <Image src={starIcon} alt={""}/>
         </div>
-        <Pie data={chartData} options={options}></Pie>
+        <div className=" w-1/2 h-auto mx-auto"><Pie data={chartData} options={options}></Pie></div>
       </div>
     </div>
   );

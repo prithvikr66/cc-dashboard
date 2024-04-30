@@ -12,11 +12,17 @@ import WebsiteVisits from "@/components/WebsiteVisits";
 import { ModeToggle } from "@/components/theme-switch-button";
 import { useTheme } from "next-themes";
 import TotalRevenue from "@/components/TotalRevenue";
+import TotalOrders from "@/components/TotalOrders";
+import NewCustomers from "@/components/NewCustomers";
+import AreaChartComponent from "@/components/ui/AreaChart";
 
 export default function Home() {
   return (
-    <div className=" w-4/5 mx-auto mt-10  ">
-      {/* <div className=" absolute"><Image src={logoGrey} alt="" className=""/></div> */}
+    <div className="relative overflow-hidden">
+      <div className=" w-4/5 mx-auto mt-10   ">
+      <div className=" absolute right-0 -z-10 transform translate-x-1/2  mt-[100px]">
+        <Image src={logoGrey} alt="" className="" />
+      </div>
       <div className=" flex flex-col items-center">
         <Image src={logoDark} alt="" className=" dark:hidden" />
         <Image src={logoLight} alt="" className=" hidden dark:block" />
@@ -34,14 +40,24 @@ export default function Home() {
         </div>
         <ModeToggle />
       </div>
-      <div className=" flex flex-col gap-5">
+      <div className=" flex flex-col gap-10">
         <TotalRevenue />
-        <div className=" flex justify-between mb-10">
-          <TotalOrdersCard />
-          <TotalCustomers />
-          <WebsiteVisits />
+        <div className=" flex justify-between ">
+          {/* <TotalOrdersCard /> */}
+          {/* <TotalCustomers /> */}
+          {/* <WebsiteVisits /> */}
         </div>
+        <div className=" flex">
+          {/* <TotalOrders /> */}
+          {/* <Bestselling /> */}
+        </div>
+        <div className=" flex">
+          {/* <NewCustomers/> */}
+          {/* <Bestselling /> */}
+        </div>
+        {/* <LatestOrders /> */}
       </div>
+    </div>
     </div>
   );
 }
