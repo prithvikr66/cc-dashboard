@@ -32,7 +32,7 @@ export default function AreaChart({
   datas: any;
   labels: any;
 }) {
-  const [active, setActive] = useState("week");
+  const [active, setActive] = useState("Year");
   const [chartLabels, setChartLabels] = useState([]);
   const [chartData, setChartData] = useState([]);
   const [totalOrders, setTotalOrders] = useState();
@@ -97,34 +97,9 @@ export default function AreaChart({
   };
 
   return (
-    
     <div>
       <Line data={data} options={options} />
-      <div className="flex justify-center items-center bg-gray-200 rounded-full py-2 px-4">
-        {["Day", "Week", "Month", "Year"].map((item) => (
-          <button
-            key={item}
-            className={`mx-2 text-sm px-4 py-2 rounded-full
-                   ${
-                     active === item.toLowerCase()
-                       ? "bg-black text-white"
-                       : "text-gray-700 bg-white"
-                   }
-                   transition duration-300 ease-in-out`}
-            onClick={() => {
-              setActive(item.toLowerCase());
-              fetchLatestData(item);
-            }}
-          >
-            {item}
-          </button>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-{/* <div className="flex justify-center items-center bg-gray-200 rounded-full py-2 px-4">
+      {/* <div className="flex justify-center items-center bg-gray-200 rounded-full py-2 px-4">
         {["Day", "Week", "Month", "Year"].map((item) => (
           <button
             key={item}
@@ -144,3 +119,85 @@ export default function AreaChart({
           </button>
         ))}
       </div> */}
+      <div className=" w-4/5 mx-auto h-[50px] bg-[#E7EBF0] dark:bg-[#192028] rounded-[200px] mt-3 flex flex-col  justify-center">
+        <div className=" flex justify-between items-center">
+          <div
+            className={` ${
+              active === "Today"
+                ? " bg-opacity-100 text-[#FFFFFF] dark:text-[#0D0D0D]"
+                : "bg-opacity-0 text-[#8F95B2]"
+            } bg-opacity-0 bg-[#0C191E] dark:bg-[#ffffff] h-[50px] w-1/5 flex items-center justify-center rounded-[200px] cursor-pointer`}
+            onClick={() => {
+              setActive("Today");
+              fetchLatestData("Day");
+            }}
+          >
+            <p className=" font-poppins-medium text-[14px] ">Today</p>
+          </div>
+          <div
+            className={` ${
+              active === "Week"
+                ? " bg-opacity-100 text-[#FFFFFF] dark:text-[#0D0D0D]"
+                : "bg-opacity-0 text-[#8F95B2]"
+            } bg-opacity-0 bg-[#0C191E] dark:bg-[#ffffff] h-[50px] w-1/5 flex items-center justify-center rounded-[200px] cursor-pointer`}
+            onClick={() => {
+              setActive("Week");
+              fetchLatestData("Week");
+            }}
+          >
+            <p className=" font-poppins-medium text-[14px] ">Week</p>
+          </div>
+          <div
+            className={` ${
+              active === "Month"
+                ? " bg-opacity-100 text-[#FFFFFF] dark:text-[#0D0D0D]"
+                : "bg-opacity-0 text-[#8F95B2]"
+            } bg-opacity-0 bg-[#0C191E] dark:bg-[#ffffff] h-[50px] w-1/5 flex items-center justify-center rounded-[200px] cursor-pointer`}
+            onClick={() => {
+              setActive("Month");
+              fetchLatestData("Month");
+            }}
+          >
+            <p className=" font-poppins-medium text-[14px] ">Month</p>
+          </div>
+          <div
+            className={` ${
+              active === "Year"
+                ? " bg-opacity-100 text-[#FFFFFF] dark:text-[#0D0D0D]"
+                : "bg-opacity-0 text-[#8F95B2]"
+            } bg-opacity-0 bg-[#0C191E] dark:bg-[#ffffff] h-[50px] w-1/5 flex items-center justify-center rounded-[200px] cursor-pointer`}
+            onClick={() => {
+              setActive("Year");
+              fetchLatestData("Year");
+            }}
+          >
+            <p className=" font-poppins-medium text-[14px] ">Year</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+{
+  /* <div className="flex justify-center items-center bg-gray-200 rounded-full py-2 px-4">
+        {["Day", "Week", "Month", "Year"].map((item) => (
+          <button
+            key={item}
+            className={`mx-2 text-sm px-4 py-2 rounded-full
+                   ${
+                     active === item.toLowerCase()
+                       ? "bg-black text-white"
+                       : "text-gray-700 bg-white"
+                   }
+                   transition duration-300 ease-in-out`}
+            onClick={() => {
+              setActive(item.toLowerCase());
+              fetchLatestData(item);
+            }}
+          >
+            {item}
+          </button>
+        ))}
+      </div> */
+}
