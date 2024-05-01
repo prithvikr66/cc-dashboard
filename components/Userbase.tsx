@@ -6,7 +6,7 @@ import ukflag from "@/public/flags/united-kingdom.svg";
 import canadaflag from "@/public/flags/canada.svg";
 import germanyflag from "@/public/flags/germany.svg";
 import australiaflag from "@/public/flags/united-kingdom.svg";
-import restOfTheWorldFlag from "@/public/flags/earth 1.svg"
+import restOfTheWorldFlag from "@/public/flags/earth 1.svg";
 const flags = [usaflag, ukflag, canadaflag, germanyflag, australiaflag];
 
 const fetchUserbase = async () => {
@@ -48,12 +48,21 @@ const fetchUserbase = async () => {
   }
   const restOfTheWorldPercentage =
     (restOfTheWorldCount / countryOrdersCount) * 100;
-  return { sortedCountyOrders, countryOrdersCount, restOfTheWorldCount , restOfTheWorldPercentage};
+  return {
+    sortedCountyOrders,
+    countryOrdersCount,
+    restOfTheWorldCount,
+    restOfTheWorldPercentage,
+  };
 };
 
 const UserBase = async () => {
-  const { countryOrdersCount, sortedCountyOrders, restOfTheWorldCount , restOfTheWorldPercentage } =
-    await fetchUserbase();
+  const {
+    countryOrdersCount,
+    sortedCountyOrders,
+    restOfTheWorldCount,
+    restOfTheWorldPercentage,
+  } = await fetchUserbase();
 
   return (
     <div className=" w-1/2 h-[540px] rounded-[16px] bg-[#ffffff] dark:bg-[#0D0D0D] mr-5 shadow-lg dark:shadow-2xl">
@@ -101,7 +110,9 @@ const UserBase = async () => {
               </div>
               <p className=" font-poppins-medium text-[16px] text-[#0C191E] dark:text-[#FFFFFF]">
                 {restOfTheWorldCount}
-                <span className=" text-[#8F95B2] ">({Math.floor(restOfTheWorldPercentage)}%)</span>
+                <span className=" text-[#8F95B2] ">
+                  ({Math.floor(restOfTheWorldPercentage)}%)
+                </span>
               </p>
             </div>
             <div className=" w-full h-[1px] bg-[#8F95B2] mb-5 " />

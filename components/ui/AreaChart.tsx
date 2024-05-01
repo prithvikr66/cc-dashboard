@@ -43,15 +43,19 @@ export default function AreaChart({
   }, [datas, labels]);
 
   const fetchLatestData = async (filter: string) => {
-    const response = await axios.get(
-      `http://localhost:3000/api/TotalOrders?interval=${filter}`
-    );
+    try {
+      const response = await axios.get(
+        `http://localhost:3000/api/TotalOrders?interval=${filter}`
+      );
 
-    const data = await response.data;
+      const data = await response.data;
 
-    setChartLabels(data.labels);
-    setChartData(data.datas);
-    setTotalOrders(data.totalOrders);
+      setChartLabels(data.labels);
+      setChartData(data.datas);
+      setTotalOrders(data.totalOrders);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const data = {
@@ -98,35 +102,18 @@ export default function AreaChart({
 
   return (
     <div>
-      <Line data={data} options={options} />
-      {/* <div className="flex justify-center items-center bg-gray-200 rounded-full py-2 px-4">
-        {["Day", "Week", "Month", "Year"].map((item) => (
-          <button
-            key={item}
-            className={`mx-2 text-sm px-4 py-2 rounded-full
-                   ${
-                     active === item.toLowerCase()
-                       ? "bg-black text-white"
-                       : "text-gray-700 bg-white"
-                   }
-                   transition duration-300 ease-in-out`}
-            onClick={() => {
-              setActive(item.toLowerCase());
-              fetchLatestData(item);
-            }}
-          >
-            {item}
-          </button>
-        ))}
-      </div> */}
+      {/* <div className=" w-full h-[350px] border  "> */}
+        <Line data={data} options={options}   />
+      {/* </div> */}
+
       <div className=" w-4/5 mx-auto h-[50px] bg-[#E7EBF0] dark:bg-[#192028] rounded-[200px] mt-3 flex flex-col  justify-center">
         <div className=" flex justify-between items-center">
           <div
-            className={` ${
+            className={`bg-[#0C191E] dark:bg-[#ffffff] h-[50px] w-1/5 flex items-center justify-center rounded-[200px] cursor-pointer  ${
               active === "Today"
-                ? " bg-opacity-100 text-[#FFFFFF] dark:text-[#0D0D0D]"
-                : "bg-opacity-0 text-[#8F95B2]"
-            } bg-opacity-0 bg-[#0C191E] dark:bg-[#ffffff] h-[50px] w-1/5 flex items-center justify-center rounded-[200px] cursor-pointer`}
+                ? " bg-opacity-100 dark:bg-opacity-100 text-[#FFFFFF] dark:text-[#0D0D0D]"
+                : "bg-opacity-0 dark:bg-opacity-0 text-[#8F95B2]"
+            }  `}
             onClick={() => {
               setActive("Today");
               fetchLatestData("Day");
@@ -137,9 +124,9 @@ export default function AreaChart({
           <div
             className={` ${
               active === "Week"
-                ? " bg-opacity-100 text-[#FFFFFF] dark:text-[#0D0D0D]"
-                : "bg-opacity-0 text-[#8F95B2]"
-            } bg-opacity-0 bg-[#0C191E] dark:bg-[#ffffff] h-[50px] w-1/5 flex items-center justify-center rounded-[200px] cursor-pointer`}
+                ? " bg-opacity-100 dark:bg-opacity-100 text-[#FFFFFF] dark:text-[#0D0D0D]"
+                : "bg-opacity-0 dark:bg-opacity-0 text-[#8F95B2]"
+            }  bg-[#0C191E] dark:bg-[#ffffff] h-[50px] w-1/5 flex items-center justify-center rounded-[200px] cursor-pointer`}
             onClick={() => {
               setActive("Week");
               fetchLatestData("Week");
@@ -150,9 +137,9 @@ export default function AreaChart({
           <div
             className={` ${
               active === "Month"
-                ? " bg-opacity-100 text-[#FFFFFF] dark:text-[#0D0D0D]"
-                : "bg-opacity-0 text-[#8F95B2]"
-            } bg-opacity-0 bg-[#0C191E] dark:bg-[#ffffff] h-[50px] w-1/5 flex items-center justify-center rounded-[200px] cursor-pointer`}
+                ? " bg-opacity-100 dark:bg-opacity-100 text-[#FFFFFF] dark:text-[#0D0D0D]"
+                : "bg-opacity-0 dark:bg-opacity-0 text-[#8F95B2] "
+            }  bg-[#0C191E] dark:bg-[#ffffff] h-[50px] w-1/5 flex items-center justify-center rounded-[200px] cursor-pointer`}
             onClick={() => {
               setActive("Month");
               fetchLatestData("Month");
@@ -163,9 +150,9 @@ export default function AreaChart({
           <div
             className={` ${
               active === "Year"
-                ? " bg-opacity-100 text-[#FFFFFF] dark:text-[#0D0D0D]"
-                : "bg-opacity-0 text-[#8F95B2]"
-            } bg-opacity-0 bg-[#0C191E] dark:bg-[#ffffff] h-[50px] w-1/5 flex items-center justify-center rounded-[200px] cursor-pointer`}
+                ? " bg-opacity-100 dark:bg-opacity-100 text-[#FFFFFF] dark:text-[#0D0D0D]"
+                : "bg-opacity-0 dark:bg-opacity-0 text-[#8F95B2]"
+            }  bg-[#0C191E] dark:bg-[#ffffff] h-[50px] w-1/5 flex items-center justify-center rounded-[200px] cursor-pointer`}
             onClick={() => {
               setActive("Year");
               fetchLatestData("Year");

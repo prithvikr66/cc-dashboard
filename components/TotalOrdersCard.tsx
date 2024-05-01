@@ -2,11 +2,15 @@ import axios from "axios";
 import shoppingCart from "@/public/icons/shopping-cart.svg";
 import Image from "next/image";
 const fetchTotalOrders = async () => {
-  const response = await axios.get(
-    "https://staging-reportingapi.cryptocart.cc/summary"
-  );
-  const data = await response.data;
-  return data.totalOrders;
+  try{
+    const response = await axios.get(
+      "https://staging-reportingapi.cryptocart.cc/summary"
+    );
+    const data = await response.data;
+    return data.totalOrders;
+  }catch(err){
+    console.log(err)
+  }
 };
 
 

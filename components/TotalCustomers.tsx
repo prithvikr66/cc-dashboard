@@ -2,13 +2,16 @@ import axios from "axios";
 import pulse from "@/public/icons/pulse.svg";
 import Image from "next/image";
 const fetchTotalOrders = async () => {
-  const response = await axios.get(
-    "https://staging-reportingapi.cryptocart.cc/summary"
-  );
-  const data = await response.data;
-  return data.totalCustomers;
+  try {
+    const response = await axios.get(
+      "https://staging-reportingapi.cryptocart.cc/summary"
+    );
+    const data = await response.data;
+    return data.totalCustomers;
+  } catch (err) {
+    console.log(err);
+  }
 };
-
 
 const TotalCustomers = async () => {
   const totalOrders = await fetchTotalOrders();
@@ -21,7 +24,7 @@ const TotalCustomers = async () => {
               {totalOrders}
             </h3>
             <p className=" font-poppins-medium text-[16px] text-[#0C191E] dark:text-white">
-            Total customers
+              Total customers
             </p>
           </div>
           <div>

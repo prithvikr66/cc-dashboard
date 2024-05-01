@@ -2,7 +2,7 @@ import cartIcon from "../public/icons/shopping-cart.svg";
 import Image from "next/image";
 const NewCustomers = () => {
   return (
-    <div className=" w-1/2 h-[440px] rounded-[16px] bg-[#ffffff] dark:bg-[#0D0D0D] mr-5 shadow-lg dark:shadow-2xl">
+    <div className=" w-1/2 h-[540px] rounded-[16px] bg-[#ffffff] dark:bg-[#0D0D0D] mr-5 shadow-lg dark:shadow-2xl">
       <div className=" p-7">
         <div className=" flex items-center justify-between">
           <div>

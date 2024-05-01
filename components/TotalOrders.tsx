@@ -4,11 +4,15 @@ import axios from "axios";
 import AreaChart from "./ui/AreaChart";
 import FilterButton from "./ui/FilterButton";
 const fetchYearlyOrders = async () => {
-  const response = await axios.get(
-    "https://staging-reportingapi.cryptocart.cc/orders/totalcount?interval=Year&reportDate=2024-02-01"
-  );
-  const data = (await response).data;
-  return data;
+  try{
+    const response = await axios.get(
+      "https://staging-reportingapi.cryptocart.cc/orders/totalcount?interval=Year&reportDate=2024-02-01"
+    );
+    const data = (await response).data;
+    return data;
+  }catch(err){
+    console.log(err)
+  }
 };
 
 const TotalOrders = async () => {

@@ -51,19 +51,19 @@ export default function Home() {
         <div className=" flex flex-col gap-10">
           <TotalRevenue />
           <div className=" flex justify-between ">
-            {/* <TotalOrdersCard /> */}
-            {/* <TotalCustomers /> */}
-            {/* <WebsiteVisits /> */}
+            <TotalOrdersCard />
+            <TotalCustomers />
+            <WebsiteVisits />
           </div>
           <div className=" flex">
             <TotalOrders />
-            {/* <Bestselling /> */}
+            <Bestselling />
           </div>
           <div className=" flex">
-            {/* <NewCustomers/> */}
+            <NewCustomers/>
             <UserBase/>
           </div>
-          {/* <LatestOrders /> */}
+          <LatestOrders />
         </div>
       </div>
     </div>

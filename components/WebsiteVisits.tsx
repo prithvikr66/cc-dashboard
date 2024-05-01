@@ -2,13 +2,16 @@ import axios from "axios";
 import globe from "@/public/icons/globe-network.svg";
 import Image from "next/image";
 const fetchTotalOrders = async () => {
-  const response = await axios.get(
-    "https://staging-reportingapi.cryptocart.cc/summary"
-  );
-  const data = await response.data;
-  return data.totalCustomers;
+  try {
+    const response = await axios.get(
+      "https://staging-reportingapi.cryptocart.cc/summary"
+    );
+    const data = await response.data;
+    return data.totalCustomers;
+  } catch (err) {
+    console.log(err);
+  }
 };
-
 
 const WebsiteVisits = async () => {
   const totalOrders = await fetchTotalOrders();
@@ -21,7 +24,7 @@ const WebsiteVisits = async () => {
               24.26K
             </h3>
             <p className=" font-poppins-medium text-[16px] text-[#0C191E] dark:text-white">
-            Website visits
+              Website visits
             </p>
           </div>
           <div>
