@@ -86,3 +86,16 @@
     font-family: 'poppins-medium';
     src: url('../public//fonts/poppins.medium.ttf') format('opentype');
   }
+  @layer components {
+    .gradient-ellipse {
+      background: radial-gradient(ellipse at center, #17FFA6 0%, transparent 10%);
+      border-radius: 50%;
+    }
+  }
+
+  /* @layer components {
+    .gradient-ellipse {
+      background: radial-gradient(ellipse at center, #17FFA6 0%, #01FD4D 33%, transparent 100%);
+      border-radius: 50%;
+    }
+  } */

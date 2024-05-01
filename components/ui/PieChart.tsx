@@ -15,9 +15,11 @@ interface ChartData {
 
 const PieChart = ({ chartData }: { chartData: any }) => {
   const options = {
+    responsive: true,
+    maintainAspectRatio: false, 
     plugins: {
       legend: {
-        display: false,
+        display: false, 
       },
     },
   };
@@ -30,7 +32,7 @@ const PieChart = ({ chartData }: { chartData: any }) => {
           </h3>
           <Image src={starIcon} alt={""}/>
         </div>
-        <div className=" w-1/2 h-auto mx-auto"><Pie data={chartData} options={options}></Pie></div>
+        <div className=" "><Pie data={chartData} options={options}></Pie></div>
       </div>
     </div>
   );
