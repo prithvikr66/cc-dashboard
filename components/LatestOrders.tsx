@@ -63,8 +63,9 @@ const LatestOrders = async () => {
               bgColorLight = "bg-gray-200";
               bgColorDark = "bg-gray-200";
           }
+          let i = 0;
           return (
-            <div className=" flex flex-col gap-5">
+            <div className=" flex flex-col gap-5" key={i++}>
               <div className=" flex justify-between ">
                 <div className=" flex items-center">
                   <p className=" font-poppins-medium text-[#0C191E] dark:text-white text-[16px]">

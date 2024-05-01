@@ -63,7 +63,7 @@ const UserBase = async () => {
     restOfTheWorldCount,
     restOfTheWorldPercentage,
   } = await fetchUserbase();
-
+ let i = 0;
   return (
     <div className=" w-1/2 h-[540px] rounded-[16px] bg-[#ffffff] dark:bg-[#0D0D0D] ml-5 shadow-lg dark:shadow-2xl">
       <div className=" p-7">
@@ -80,7 +80,7 @@ const UserBase = async () => {
         </div>
         <div className=" mt-8">
           {sortedCountyOrders.slice(0, 5).map((country) => (
-            <div className=" flex flex-col gap-5">
+            <div className=" flex flex-col gap-5 " key={i++}>
               {" "}
               <div className=" flex justify-between items-center">
                 <div className=" flex items-center gap-4">
