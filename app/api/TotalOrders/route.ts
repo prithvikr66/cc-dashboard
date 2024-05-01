@@ -2,9 +2,9 @@ import { NextResponse, NextRequest } from "next/server";
 import axios from "axios";
 
 export async function GET(req: NextRequest) {
+  const url = new URL(req.url);
+  const interval = url.searchParams.get("interval");
   try {
-    const url = new URL(req.url);
-    const interval = url.searchParams.get("interval");
     const response = await axios.get(
       `https://staging-reportingapi.cryptocart.cc/orders/totalcount?interval=${interval}&reportDate=2024-02-01`
     );
@@ -38,7 +38,7 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({
         labels,
         datas,
-        totalOrders
+        totalOrders,
       });
     } else if (interval === "Week") {
       console.log(items);
@@ -61,7 +61,7 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({
         labels,
         datas,
-        totalOrders
+        totalOrders,
       });
     }
 
@@ -71,7 +71,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({
       labels,
       datas,
-      totalOrders
+      totalOrders,
     });
   } catch (err) {
     console.log(err);
