@@ -6,20 +6,24 @@ type SegmentData = {
 };
 
 const fetchBestSelling = async () => {
-  const response = await axios.get(
-    "https://staging-reportingapi.cryptocart.cc/summary"
-  );
-  const data = await response.data;
-  return data.bestSellingByCategory.items;
+  try {
+    const response = await axios.get(
+      "https://staging-reportingapi.cryptocart.cc/summary"
+    );
+    const data = await response.data;
+    return data.bestSellingByCategory.items;
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 const Bestselling = async () => {
   const bestSellingData: SegmentData[] = await fetchBestSelling();
   const chartData = {
-    labels: bestSellingData.map((item) => item.segmentName),
+    labels: bestSellingData?.map((item) => item.segmentName),
     datasets: [
       {
-        data: bestSellingData.map((item) => item.segmentTotal),
+        data: bestSellingData?.map((item) => item.segmentTotal),
         backgroundColor: [
           "#6432F7",
           "#C1ADFC",
@@ -37,7 +41,7 @@ const Bestselling = async () => {
           "#FCFEB2",
         ],
         borderWidth: 0,
-        borderAlign: 'inner'
+        borderAlign: "inner",
       },
     ],
   };

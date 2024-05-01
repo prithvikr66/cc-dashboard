@@ -1,5 +1,5 @@
 import axios from "axios";
-import globeIcon from "@/public/icons/globe-network.svg";
+import globeIcon from "@/public/icons/globe.svg";
 import Image from "next/image";
 import usaflag from "@/public/flags/united-states-of-america.svg";
 import ukflag from "@/public/flags/united-kingdom.svg";
@@ -65,7 +65,7 @@ const UserBase = async () => {
   } = await fetchUserbase();
 
   return (
-    <div className=" w-1/2 h-[540px] rounded-[16px] bg-[#ffffff] dark:bg-[#0D0D0D] mr-5 shadow-lg dark:shadow-2xl">
+    <div className=" w-1/2 h-[540px] rounded-[16px] bg-[#ffffff] dark:bg-[#0D0D0D] ml-5 shadow-lg dark:shadow-2xl">
       <div className=" p-7">
         <div className=" flex items-center justify-between">
           <div>

@@ -1,6 +1,5 @@
 import Bestselling from "@/components/Bestselling";
 import LatestOrders from "@/components/LatestOrders";
-import NewVsReturning from "@/components/NewVsReturning";
 import TotalCustomers from "@/components/TotalCustomers";
 import TotalOrdersCard from "@/components/TotalOrdersCard";
 import UserBase from "@/components/Userbase";
@@ -10,11 +9,9 @@ import logoGrey from "../public/cc-logo-grey.svg";
 import Image from "next/image";
 import WebsiteVisits from "@/components/WebsiteVisits";
 import { ModeToggle } from "@/components/theme-switch-button";
-import { useTheme } from "next-themes";
 import TotalRevenue from "@/components/TotalRevenue";
 import TotalOrders from "@/components/TotalOrders";
 import NewCustomers from "@/components/NewCustomers";
-import AreaChartComponent from "@/components/ui/AreaChart";
 import ellipse1 from "@/public/Ellipse 3.png";
 import ellipse2 from "@/public/Ellipse 4.png";
 

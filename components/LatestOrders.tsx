@@ -15,7 +15,7 @@ const fetchLatestOrders = async () => {
 const LatestOrders = async () => {
   const latestOrders = await fetchLatestOrders();
   return (
-    <div className=" w-full bg-[#ffffff] dark:bg-[#0D0D0D] h-[400px] rounded-[16px]  shadow-lg dark:shadow-2xl mb-16 overflow-y-auto">
+    <div className=" w-full bg-[#ffffff] dark:bg-[#0D0D0D] h-[450px] rounded-[16px]  shadow-lg dark:shadow-2xl mb-16 overflow-y-auto">
       <div className="p-7 flex flex-col gap-5">
         <div className=" flex justify-between ">
           <h3 className=" font-poppins-bold text-[32px] text-[#0C191E] dark:text-[#ffffff]">

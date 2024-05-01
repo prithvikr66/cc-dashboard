@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import axios from "axios";
+import { useTheme } from "next-themes";
 import {
   Chart as ChartJS,
   defaults,
@@ -37,6 +38,8 @@ export default function AreaChart({
   const [chartData, setChartData] = useState([]);
   const [totalOrders, setTotalOrders] = useState();
 
+  const { theme } = useTheme();
+
   useEffect(() => {
     setChartData(datas);
     setChartLabels(labels);
@@ -68,9 +71,23 @@ export default function AreaChart({
         backgroundColor: function (context: any) {
           const ctx = context.chart.ctx;
           const gradient = ctx.createLinearGradient(0, 0, 0, 400);
-          gradient.addColorStop(0, "#F41DEB");
-          gradient.addColorStop(1, "#F41DEB");
-          return gradient;
+          if (theme === "light") {
+            gradient.addColorStop(0, "#F41DEB");
+            gradient.addColorStop(0.2, "#F146EC");
+            gradient.addColorStop(0.4, "#EF6FED");
+            gradient.addColorStop(0.6, "#EC99EE");
+            gradient.addColorStop(0.8, "#FFFFFF");
+            gradient.addColorStop(1, "#FFFFFF");
+            return gradient;
+          } else {
+            gradient.addColorStop(0, "#F41DEB");
+            gradient.addColorStop(0.2, "#F146EC");
+            gradient.addColorStop(0.4, "#EF6FED");
+            gradient.addColorStop(0.6, "#7F4D7D");
+            gradient.addColorStop(0.8, "#2C292C");
+            gradient.addColorStop(1, "#242224");
+            return gradient;
+          }
         },
         borderColor: "#F41DEB",
         borderWidth: 0,
@@ -82,6 +99,7 @@ export default function AreaChart({
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         display: false,
@@ -102,9 +120,9 @@ export default function AreaChart({
 
   return (
     <div>
-      {/* <div className=" w-full h-[350px] border  "> */}
-        <Line data={data} options={options}   />
-      {/* </div> */}
+      <div className=" w-full h-[350px]   ">
+        <Line data={data} options={options} />
+      </div>
 
       <div className=" w-4/5 mx-auto h-[50px] bg-[#E7EBF0] dark:bg-[#192028] rounded-[200px] mt-3 flex flex-col  justify-center">
         <div className=" flex justify-between items-center">

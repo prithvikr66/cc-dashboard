@@ -2,7 +2,6 @@ import cartIcon from "../public/icons/shopping-cart.svg";
 import Image from "next/image";
 import axios from "axios";
 import AreaChart from "./ui/AreaChart";
-import FilterButton from "./ui/FilterButton";
 const fetchYearlyOrders = async () => {
   try{
     const response = await axios.get(
@@ -17,8 +16,8 @@ const fetchYearlyOrders = async () => {
 
 const TotalOrders = async () => {
   const ordersData = await fetchYearlyOrders();
-  const totalOrders = ordersData.totalCount;
-  const items = ordersData.items;
+  const totalOrders = ordersData?.totalCount;
+  const items = ordersData?.items;
   const monthOrder = [
     "Jan",
     "Feb",
@@ -33,12 +32,12 @@ const TotalOrders = async () => {
     "Nov",
     "Dec",
   ];
-  const itemsInOrder = monthOrder.map((month) =>
-    items.find((item: any) => item.segmentName === month)
+  const itemsInOrder = monthOrder?.map((month) =>
+    items?.find((item: any) => item?.segmentName === month)
   );
 
-  const labels = itemsInOrder.map((item) => item.segmentName);
-  const datas = itemsInOrder.map((item) => item.segmentTotal);
+  const labels = itemsInOrder?.map((item) => item?.segmentName);
+  const datas = itemsInOrder?.map((item) => item?.segmentTotal);
 
   return (
     <div className=" w-1/2 h-[540px] rounded-[16px] bg-[#ffffff] dark:bg-[#0D0D0D] mr-5 shadow-lg dark:shadow-2xl">

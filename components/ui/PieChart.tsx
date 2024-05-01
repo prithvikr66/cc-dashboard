@@ -2,7 +2,7 @@
 import { Pie } from "react-chartjs-2";
 import { Chart, ArcElement, Tooltip, Legend, defaults } from "chart.js";
 import Image from "next/image";
-import starIcon from "../../public/icons/globe-network.svg";
+import starIcon from "../../public/icons/star.svg";
 Chart.register(ArcElement, Tooltip, Legend);
 defaults.font.family = "poppins-medium";
 interface ChartData {

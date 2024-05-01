@@ -1,4 +1,4 @@
-import cartIcon from "../public/icons/shopping-cart.svg";
+import peopleIcon from "../public/icons/people.svg";
 import Image from "next/image";
 const NewCustomers = () => {
   return (
@@ -13,7 +13,7 @@ const NewCustomers = () => {
               New customers
             </p>
           </div>
-          <Image src={cartIcon} alt="" />
+          <Image src={peopleIcon} alt="" />
         </div>
       </div>
     </div>
