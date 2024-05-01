@@ -61,7 +61,7 @@ export default function Home() {
           </div>
           <div className=" flex">
             {/* <NewCustomers/> */}
-            {/* <Bestselling /> */}
+            <UserBase/>
           </div>
           {/* <LatestOrders /> */}
         </div>
