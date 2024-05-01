@@ -5,7 +5,6 @@ type SegmentData = {
   segmentTotal: string;
 };
 
-
 const fetchBestSelling = async () => {
   const response = await axios.get(
     "https://staging-reportingapi.cryptocart.cc/summary"
@@ -22,28 +21,31 @@ const Bestselling = async () => {
       {
         data: bestSellingData.map((item) => item.segmentTotal),
         backgroundColor: [
-          "#FF6384",
-          "#36A2EB",
-          "#FFCE56",
-          "#4BC0C0",
-          "#9966FF",
-          "#FF9F40",
-          "#FF6384",
-          "#36A2EB",
-          "#FFCE56",
-          "#4BC0C0",
-          "#9966FF",
-          "#FF9F40",
-          "#FF6384",
-          "#36A2EB",
+          "#6432F7",
+          "#C1ADFC",
+          "#9375FF",
+          "#CD5069",
+          "#55B2FF",
+          "#55FFA5",
+          "#9375FF",
+          "#F41DEB",
+          "#FFDF5C",
+          "#48E640",
+          "#B943F0",
+          "#FCFEB2",
+          "#FF5352",
+          "#FCFEB2",
         ],
-        borderWidth:0,
+        borderWidth: 0,
+        borderAlign: 'inner'
       },
     ],
   };
-  return <div className="w-1/2 h-[540px] rounded-[16px] bg-[#ffffff] dark:bg-[#0D0D0D] ml-5 shadow-lg dark:shadow-2xl">
-    <PieChart chartData={chartData}></PieChart>
-  </div>;
+  return (
+    <div className="w-1/2 h-[540px] rounded-[16px] bg-[#ffffff] dark:bg-[#0D0D0D] ml-5 shadow-lg dark:shadow-2xl">
+      <PieChart chartData={chartData}></PieChart>
+    </div>
+  );
 };
 
 export default Bestselling;
