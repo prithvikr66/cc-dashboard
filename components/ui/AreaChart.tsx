@@ -25,7 +25,8 @@ ChartJS.register(
 );
 
 defaults.font.family = "poppins-bold";
-
+// const BASE_URI = "http://localhost:3001"
+const BASE_URI = "https://cc-dashboard-opal.vercel.app/"
 export default function AreaChart({
   labels,
   datas,
@@ -48,7 +49,7 @@ export default function AreaChart({
   const fetchLatestData = async (filter: string) => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/TotalOrders?interval=${filter}`
+        `${BASE_URI}/api/TotalOrders?interval=${filter}`
       );
 
       const data = await response.data;

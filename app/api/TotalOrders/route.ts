@@ -1,5 +1,6 @@
 import { NextResponse, NextRequest } from "next/server";
 import axios from "axios";
+// import { isDynamicServerError } from "next/dist/client/components/hooks-server-context";
 
 export async function GET(req: NextRequest) {
   const url = new URL(req.url);
@@ -41,7 +42,6 @@ export async function GET(req: NextRequest) {
         totalOrders,
       });
     } else if (interval === "Week") {
-      console.log(items);
       if (!items.some((item: any) => item.segmentName === "Mon")) {
         let thursdayIndex = items.findIndex(
           (item: any) => item.segmentName === "Thu"

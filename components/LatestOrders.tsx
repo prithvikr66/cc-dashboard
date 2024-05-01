@@ -1,6 +1,5 @@
 import axios from "axios";
 import { IoSearch } from "react-icons/io5";
-import Image from "next/image";
 const fetchLatestOrders = async () => {
   try {
     const response = await axios.get(
@@ -74,8 +73,7 @@ const LatestOrders = async () => {
                   </p>
                 </div>
                 <div className=" flex gap-2 items-center w-[350px]  ">
-                  <Image
-                    alt=""
+                  <img
                     src={order.productImage}
                     className=" h-[32px] w-[32px] rounded-full"
                   />
@@ -89,11 +87,11 @@ const LatestOrders = async () => {
                   </p>
                 </div>
                 <div className=" flex flex-col items-center">
-                  <div
-                    className={`h-[40px] w-[94px] bg-[#FCFEB2] rounded-[4px] flex items-center justify-center dark:bg-[#CACC33]  text-[#0C191E] dark:text-[#0C191E]text-[14px] font-poppins-medium`}
-                  >
-                    {order.orderStatus}
-                  </div>
+                <div
+                  className={`h-[40px] w-[94px] bg-[#FCFEB2] rounded-[4px] flex items-center justify-center dark:bg-[#CACC33]  text-[#0C191E] dark:text-[#0C191E]text-[14px] font-poppins-medium`}
+                >
+                  {order.orderStatus}
+                </div>
                 </div>
               </div>
               <div className=" w-full h-[1px] bg-[#8F95B2]" />
