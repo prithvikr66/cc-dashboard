@@ -66,7 +66,6 @@ const BarChart: React.FC<BarChartProps> = ({
     labels: currentChartLabel,
     datasets: [
       {
-        label: "Number of Customers",
         data: currentChartData,
         backgroundColor: ["rgba(255, 99, 132, 0.2)", "rgba(54, 162, 235, 0.2)"],
         borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)"],
@@ -83,10 +82,11 @@ const BarChart: React.FC<BarChartProps> = ({
     },
     plugins: {
       legend: {
+        display:false,
         position: "top",
       },
       title: {
-        display: true,
+        display: false,
         text: "Customer Types",
       },
     },
@@ -111,10 +111,10 @@ const BarChart: React.FC<BarChartProps> = ({
         <div className=" w-4/5 mx-auto h-[350px]">
           <Bar data={data} options={options}></Bar>
         </div>
-        <div className=" w-4/5 mx-auto h-[50px] bg-[#E7EBF0] dark:bg-[#192028] rounded-[200px] mt-3 flex flex-col  justify-center">
+        <div className=" w-4/5 mx-auto h-[40px] 2xl:h-[50px] bg-[#E7EBF0] dark:bg-[#192028] rounded-[200px] mt-3 flex flex-col  justify-center">
           <div className=" flex justify-between items-center">
             <div
-              className={`bg-[#0C191E] dark:bg-[#ffffff] h-[50px] w-1/5 flex items-center justify-center rounded-[200px] cursor-pointer  ${
+              className={`bg-[#0C191E] dark:bg-[#ffffff] h-[40px] 2xl:h-[50px] w-1/5 flex items-center justify-center rounded-[200px] cursor-pointer  ${
                 active === "Today"
                   ? " bg-opacity-100 dark:bg-opacity-100 text-[#FFFFFF] dark:text-[#0D0D0D]"
                   : "bg-opacity-0 dark:bg-opacity-0 text-[#8F95B2]"
@@ -131,7 +131,7 @@ const BarChart: React.FC<BarChartProps> = ({
                 active === "Week"
                   ? " bg-opacity-100 dark:bg-opacity-100 text-[#FFFFFF] dark:text-[#0D0D0D]"
                   : "bg-opacity-0 dark:bg-opacity-0 text-[#8F95B2]"
-              }  bg-[#0C191E] dark:bg-[#ffffff] h-[50px] w-1/5 flex items-center justify-center rounded-[200px] cursor-pointer`}
+              }  bg-[#0C191E] dark:bg-[#ffffff] h-[40px] 2xl:h-[50px] w-1/5 flex items-center justify-center rounded-[200px] cursor-pointer`}
               onClick={() => {
                 setActive("Week");
                 fetchLatestData("Week");
@@ -144,7 +144,7 @@ const BarChart: React.FC<BarChartProps> = ({
                 active === "Month"
                   ? " bg-opacity-100 dark:bg-opacity-100 text-[#FFFFFF] dark:text-[#0D0D0D]"
                   : "bg-opacity-0 dark:bg-opacity-0 text-[#8F95B2] "
-              }  bg-[#0C191E] dark:bg-[#ffffff] h-[50px] w-1/5 flex items-center justify-center rounded-[200px] cursor-pointer`}
+              }  bg-[#0C191E] dark:bg-[#ffffff] h-[40px] 2xl:h-[50px] w-1/5 flex items-center justify-center rounded-[200px] cursor-pointer`}
               onClick={() => {
                 setActive("Month");
                 fetchLatestData("Month");
@@ -157,7 +157,7 @@ const BarChart: React.FC<BarChartProps> = ({
                 active === "Year"
                   ? " bg-opacity-100 dark:bg-opacity-100 text-[#FFFFFF] dark:text-[#0D0D0D]"
                   : "bg-opacity-0 dark:bg-opacity-0 text-[#8F95B2]"
-              }  bg-[#0C191E] dark:bg-[#ffffff] h-[50px] w-1/5 flex items-center justify-center rounded-[200px] cursor-pointer`}
+              }  bg-[#0C191E] dark:bg-[#ffffff] h-[40px] 2xl:h-[50px] w-1/5 flex items-center justify-center rounded-[200px] cursor-pointer`}
               onClick={() => {
                 setActive("Year");
                 fetchLatestData("Year");
