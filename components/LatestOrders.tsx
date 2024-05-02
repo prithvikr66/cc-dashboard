@@ -21,12 +21,6 @@ const LatestOrders = async () => {
           <h3 className=" font-poppins-bold text-[32px] text-[#0C191E] dark:text-[#ffffff]">
             Latest orders
           </h3>
-          <div className=" bg-[#8F95B2] w-1/6 h-[50px] rounded-[200px] bg-opacity-20 flex items-center justify-start  pl-5 gap-2">
-            <IoSearch className=" dark:text-[#8F95B2]" />
-            <span className=" font-poppins-regular text-[16px] dark:text-[#8F95B2] ">
-              Search
-            </span>
-          </div>
         </div>
         <div className=" flex justify-between">
           <p className=" uppercase text-[#8F95B2] font-poppins-medium text-[14px]  w-[95px]">
@@ -87,11 +81,11 @@ const LatestOrders = async () => {
                   </p>
                 </div>
                 <div className=" flex flex-col items-center">
-                <div
-                  className={`h-[40px] w-[94px] bg-[#FCFEB2] rounded-[4px] flex items-center justify-center dark:bg-[#CACC33]  text-[#0C191E] dark:text-[#0C191E]text-[14px] font-poppins-medium`}
-                >
-                  {order.orderStatus}
-                </div>
+                  <div
+                    className={`h-[40px] w-[94px] bg-[#FCFEB2] rounded-[4px] flex items-center justify-center dark:bg-[#CACC33]  text-[#0C191E] dark:text-[#0C191E]text-[14px] font-poppins-medium`}
+                  >
+                    {order.orderStatus}
+                  </div>
                 </div>
               </div>
               <div className=" w-full h-[1px] bg-[#8F95B2]" />
