@@ -125,7 +125,7 @@ export default function LifetimeChart({
   };
 
   return (
-    <div className=" w-full h-[500px] rounded-[16px] bg-[#ffffff] dark:bg-[#0D0D0D] shadow-lg dark:shadow-2xl">
+    <div className=" w-full h-[400px] xl:h-[500px] rounded-[16px] bg-[#ffffff] dark:bg-[#0D0D0D] shadow-lg dark:shadow-2xl">
       <div className=" p-7">
         <div className=" flex items-center justify-between">
           <div>
@@ -141,7 +141,7 @@ export default function LifetimeChart({
           </div>
         </div>
         <div>
-          <div className=" w-full h-[350px]   ">
+          <div className=" w-full h-[250px] xl:h-[350px]   ">
             <Line data={data} options={options} />
           </div>
 

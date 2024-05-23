@@ -125,7 +125,7 @@ export default function AreaChart({
   };
 
   return (
-    <div className=" w-1/2 h-[540px] rounded-[16px] bg-[#ffffff] dark:bg-[#0D0D0D] mr-5 shadow-lg dark:shadow-2xl">
+    <div className=" w-1/2 h-[440px] xl:h-[540px] rounded-[16px] bg-[#ffffff] dark:bg-[#0D0D0D] mr-5 shadow-lg dark:shadow-2xl">
       <div className=" p-7">
         <div className=" flex items-center justify-between">
           <div>
@@ -139,7 +139,7 @@ export default function AreaChart({
           <Image src={cartIcon} alt="" />
         </div>
         <div>
-      <div className=" w-full h-[350px]   ">
+      <div className=" w-full h-[250px]  xl:h-[350px] ">
         <Line data={data} options={options} />
       </div>
 

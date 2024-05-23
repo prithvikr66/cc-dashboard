@@ -44,7 +44,7 @@ const PieChart = ({ chartData }: { chartData: any }) => {
           </h3>
           <Image src={starIcon} alt={""} />
         </div>
-        <div className=" h-[400px] mt-10">
+        <div className=" h-[300px] mt-10 xl:h-[400px]">
           <Pie data={chartData} options={options}></Pie>
         </div>
       </div>
