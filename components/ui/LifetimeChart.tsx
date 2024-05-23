@@ -3,8 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import axios from "axios";
 import { useTheme } from "next-themes";
-import cartIcon from "@/public/icons/shopping-cart.svg"
-import Image from "next/image";
+
 import {
   Chart as ChartJS,
   defaults,
@@ -16,6 +15,7 @@ import {
   Filler,
   Legend,
 } from "chart.js";
+import RevenueFilterButton from "./RevenueFilterButton";
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -27,16 +27,16 @@ ChartJS.register(
 );
 
 defaults.font.family = "poppins-bold";
-const BASE_URI = "http://localhost:3000"
+const BASE_URI = "http://localhost:3000";
 // const BASE_URI = "https://cc-dashboard-opal.vercel.app/"
 export default function LifetimeChart({
   labels,
   datas,
-  totalRevenueProp
+  totalRevenueProp,
 }: {
   datas: any;
   labels: any;
-  totalRevenueProp:any
+  totalRevenueProp: any;
 }) {
   const [active, setActive] = useState("Year");
   const [chartLabels, setChartLabels] = useState([]);
@@ -48,13 +48,14 @@ export default function LifetimeChart({
   useEffect(() => {
     setChartData(datas);
     setChartLabels(labels);
-    setTotalRevenue(totalRevenueProp)
+    setTotalRevenue(totalRevenueProp);
   }, [datas, labels]);
 
   const fetchLatestData = async (filter: string) => {
     try {
+      console.log(filter)
       const response = await axios.get(
-        `${BASE_URI}/api/TotalOrders?interval=${filter}`
+        `${BASE_URI}/api/TotalRevenue?interval=${filter}`
       );
 
       const data = await response.data;
@@ -86,12 +87,12 @@ export default function LifetimeChart({
             gradient.addColorStop(1, "#FAFEFA");
             return gradient;
           } else {
-            gradient.addColorStop(0, "#F41DEB");
-            gradient.addColorStop(0.2, "#F146EC");
-            gradient.addColorStop(0.4, "#EF6FED");
-            gradient.addColorStop(0.6, "#7F4D7D");
-            gradient.addColorStop(0.8, "#2C292C");
-            gradient.addColorStop(1, "#242224");
+            gradient.addColorStop(0, "#48E640");
+            gradient.addColorStop(0.2, "#48E640");
+            gradient.addColorStop(0.4, "#57C752");
+            gradient.addColorStop(0.6, "#5DA25A");
+            gradient.addColorStop(0.8, "#3C453C");
+            gradient.addColorStop(1, "#151515");
             return gradient;
           }
         },
@@ -130,78 +131,24 @@ export default function LifetimeChart({
         <div className=" flex items-center justify-between">
           <div>
             <h3 className=" font-poppins-bold text-[32px] text-[#0C191E] dark:text-[#ffffff]">
-              {totalRevenue}
+              {`$${totalRevenue}`}
             </h3>
             <p className=" font-poppins-medium text-[16px] text-[#3D3D3D] dark:text-[#8F95B2]">
               Total Revenue
             </p>
           </div>
-          <Image src={cartIcon} alt="" />
+          <div>
+            <RevenueFilterButton onChangeHandler={fetchLatestData}/>
+          </div>
         </div>
         <div>
-      <div className=" w-full h-[350px]   ">
-        <Line data={data} options={options} />
-      </div>
+          <div className=" w-full h-[350px]   ">
+            <Line data={data} options={options} />
+          </div>
 
-      <div className=" w-4/5 mx-auto h-[40px] 2xl:h-[50px] bg-[#E7EBF0] dark:bg-[#192028] rounded-[200px] mt-3 flex flex-col  justify-center">
-        <div className=" flex justify-between items-center">
-          <div
-            className={`bg-[#0C191E] dark:bg-[#ffffff] h-[40px] 2xl:h-[50px] w-1/5 flex items-center justify-center rounded-[200px] cursor-pointer  ${
-              active === "Today"
-                ? " bg-opacity-100 dark:bg-opacity-100 text-[#FFFFFF] dark:text-[#0D0D0D]"
-                : "bg-opacity-0 dark:bg-opacity-0 text-[#8F95B2]"
-            }  `}
-            onClick={() => {
-              setActive("Today");
-              fetchLatestData("Day");
-            }}
-          >
-            <p className=" font-poppins-medium text-[14px] ">Today</p>
-          </div>
-          <div
-            className={` ${
-              active === "Week"
-                ? " bg-opacity-100 dark:bg-opacity-100 text-[#FFFFFF] dark:text-[#0D0D0D]"
-                : "bg-opacity-0 dark:bg-opacity-0 text-[#8F95B2]"
-            }  bg-[#0C191E] dark:bg-[#ffffff] h-[40px] 2xl:h-[50px] w-1/5 flex items-center justify-center rounded-[200px] cursor-pointer`}
-            onClick={() => {
-              setActive("Week");
-              fetchLatestData("Week");
-            }}
-          >
-            <p className=" font-poppins-medium text-[14px] ">Week</p>
-          </div>
-          <div
-            className={` ${
-              active === "Month"
-                ? " bg-opacity-100 dark:bg-opacity-100 text-[#FFFFFF] dark:text-[#0D0D0D]"
-                : "bg-opacity-0 dark:bg-opacity-0 text-[#8F95B2] "
-            }  bg-[#0C191E] dark:bg-[#ffffff] h-[40px] 2xl:h-[50px] w-1/5 flex items-center justify-center rounded-[200px] cursor-pointer`}
-            onClick={() => {
-              setActive("Month");
-              fetchLatestData("Month");
-            }}
-          >
-            <p className=" font-poppins-medium text-[14px] ">Month</p>
-          </div>
-          <div
-            className={` ${
-              active === "Year"
-                ? " bg-opacity-100 dark:bg-opacity-100 text-[#FFFFFF] dark:text-[#0D0D0D]"
-                : "bg-opacity-0 dark:bg-opacity-0 text-[#8F95B2]"
-            }  bg-[#0C191E] dark:bg-[#ffffff] h-[40px] 2xl:h-[50px] w-1/5 flex items-center justify-center rounded-[200px] cursor-pointer`}
-            onClick={() => {
-              setActive("Year");
-              fetchLatestData("Year");
-            }}
-          >
-            <p className=" font-poppins-medium text-[14px] ">Year</p>
-          </div>
+          {/*  */}
         </div>
-      </div>
-    </div> 
       </div>
     </div>
   );
 }
-
