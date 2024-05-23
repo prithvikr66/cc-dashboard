@@ -38,7 +38,6 @@ export default function LifetimeChart({
   labels: any;
   totalRevenueProp: any;
 }) {
-  const [active, setActive] = useState("Year");
   const [chartLabels, setChartLabels] = useState([]);
   const [chartData, setChartData] = useState([]);
   const [totalRevenue, setTotalRevenue] = useState();
@@ -126,7 +125,7 @@ export default function LifetimeChart({
   };
 
   return (
-    <div className=" w-full h-[550px] rounded-[16px] bg-[#ffffff] dark:bg-[#0D0D0D] shadow-lg dark:shadow-2xl">
+    <div className=" w-full h-[500px] rounded-[16px] bg-[#ffffff] dark:bg-[#0D0D0D] shadow-lg dark:shadow-2xl">
       <div className=" p-7">
         <div className=" flex items-center justify-between">
           <div>
