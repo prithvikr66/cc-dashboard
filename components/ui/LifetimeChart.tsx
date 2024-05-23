@@ -27,8 +27,8 @@ ChartJS.register(
 );
 
 defaults.font.family = "poppins-bold";
-const BASE_URI = "http://localhost:3000";
-// const BASE_URI = "https://cc-dashboard-opal.vercel.app/"
+// const BASE_URI = "http://localhost:3000";
+const BASE_URI = "https://cc-dashboard-opal.vercel.app/"
 export default function LifetimeChart({
   labels,
   datas,
