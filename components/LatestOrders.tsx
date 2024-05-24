@@ -23,10 +23,10 @@ const LatestOrders = async () => {
           </h3>
         </div>
         <div className=" flex justify-between">
-          <p className=" uppercase text-[#8F95B2] font-poppins-medium text-[14px]  w-[95px]">
+          <p className=" uppercase text-[#8F95B2] font-poppins-medium text-[14px]  w-[200px]">
             Date
           </p>
-          <p className=" uppercase text-[#8F95B2] font-poppins-medium text-[14px] w-[350px] ">
+          <p className=" uppercase text-[#8F95B2] font-poppins-medium text-[14px] w-[250px] ">
             Product
           </p>
           <p className=" uppercase text-[#8F95B2] font-poppins-medium text-[14px] w-[70px]">
@@ -60,29 +60,29 @@ const LatestOrders = async () => {
           let i = 0;
           return (
             <div className=" flex flex-col gap-5" key={i++}>
-              <div className=" flex justify-between ">
+              <div className=" flex justify-between items-center">
                 <div className=" flex items-center">
-                  <p className=" font-poppins-medium text-[#0C191E] dark:text-white text-[16px]">
+                  <p className=" font-poppins-medium text-[#0C191E] dark:text-white text-[12px] md:text-[16px]">
                     March 26
                   </p>
                 </div>
-                <div className=" flex gap-2 items-center w-[350px]  ">
+                <div className=" flex flex-col md:flex-row md:justify-center gap-2 items-center w-[350px]  ">
                   <img
                     src={order.productImage}
                     className=" h-[32px] w-[32px] rounded-full"
                   />
-                  <span className=" font-poppins-medium text-[#0C191E] dark:text-white text-[16px]">
+                  <span className=" font-poppins-medium text-[#0C191E] dark:text-white text-[12px] md:text-[16px]">
                     {order.productName}
                   </span>
                 </div>
                 <div className=" flex items-center w-[70px] ">
-                  <p className=" font-poppins-medium text-[#0C191E] dark:text-white text-[16px]">
+                  <p className=" font-poppins-medium text-[#0C191E] dark:text-white  text-[12px] md:text-[16px]">
                     {order.voucherValue}
                   </p>
                 </div>
                 <div className=" flex flex-col items-center">
                   <div
-                    className={`h-[40px] w-[94px] bg-[#FCFEB2] rounded-[4px] flex items-center justify-center dark:bg-[#CACC33]  text-[#0C191E] dark:text-[#0C191E]text-[14px] font-poppins-medium`}
+                    className={` h-[30px] w-[64px] md:h-[40px] md:w-[94px] bg-[#FCFEB2] rounded-[4px] flex items-center justify-center dark:bg-[#CACC33]  text-[#0C191E] dark:text-[#0C191E] text-[10px] md:text-[14px] font-poppins-medium`}
                   >
                     {order.orderStatus}
                   </div>
