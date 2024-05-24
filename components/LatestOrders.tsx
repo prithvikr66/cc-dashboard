@@ -15,7 +15,7 @@ const fetchLatestOrders = async () => {
 const LatestOrders = async () => {
   const latestOrders = await fetchLatestOrders();
   return (
-    <div className=" w-full bg-[#ffffff] dark:bg-[#0D0D0D] h-[450px] rounded-[16px]  shadow-lg dark:shadow-2xl mb-16 overflow-y-auto">
+    <div className=" w-full bg-[#ffffff] dark:bg-[#0D0D0D] h-[450px] rounded-[16px]  shadow-lg dark:shadow-2xl mb-16 overflow-y-auto overflow-x-auto">
       <div className="p-7 flex flex-col gap-5">
         <div className=" flex justify-between ">
           <h3 className=" font-poppins-bold text-[32px] text-[#0C191E] dark:text-[#ffffff]">
@@ -23,16 +23,16 @@ const LatestOrders = async () => {
           </h3>
         </div>
         <div className=" flex justify-between">
-          <p className=" uppercase text-[#8F95B2] font-poppins-medium text-[14px]  w-[200px]">
+          <p className=" uppercase text-[#8F95B2] font-poppins-medium text-[10px] md:text-[14px]  w-[100px] md:w-[200px]">
             Date
           </p>
-          <p className=" uppercase text-[#8F95B2] font-poppins-medium text-[14px] w-[250px] ">
+          <p className=" uppercase text-[#8F95B2] font-poppins-medium text-[10px] md:text-[14px]  w-[170px] md:w-[250px] ">
             Product
           </p>
-          <p className=" uppercase text-[#8F95B2] font-poppins-medium text-[14px] w-[70px]">
+          <p className=" uppercase text-[#8F95B2] font-poppins-medium text-[10px] md:text-[14px] w-[60px] md:w-[70px]">
             Value
           </p>
-          <p className=" uppercase text-[#8F95B2] font-poppins-medium text-[14px]">
+          <p className=" uppercase text-[#8F95B2] font-poppins-medium text-[10px] md:text-[14px] ml-[25px] md:ml-0">
             Delivery status
           </p>
         </div>
