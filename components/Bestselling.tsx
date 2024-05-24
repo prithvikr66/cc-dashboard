@@ -46,7 +46,7 @@ const Bestselling = async () => {
     ],
   };
   return (
-    <div className="w-1/2 h-[440px] xl:h-[540px] rounded-[16px] bg-[#ffffff] dark:bg-[#0D0D0D] ml-5 shadow-lg dark:shadow-2xl">
+    <div className="w-full lg:w-1/2 h-[440px] xl:h-[540px] rounded-[16px] bg-[#ffffff] dark:bg-[#0D0D0D] lg:ml-5 shadow-lg dark:shadow-2xl">
       <PieChart chartData={chartData}></PieChart>
     </div>
   );

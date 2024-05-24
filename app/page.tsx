@@ -32,14 +32,16 @@ export default function Home() {
           <Image src={logoDark} alt="" className=" dark:hidden" />
           <Image src={logoLight} alt="" className=" hidden dark:block" />
         </div>
-        <div className=" flex  items-center">
-          <div className=" font-poppins-bold text-[40px] mx-auto  ">
+        <div className=" flex  items-center mt-5 lg:mt-0 mb-5 lg:mb-0">
+          <div className=" font-poppins-bold text-[25px] sm:text-[30px] lg:text-[40px] mx-auto  ">
             CryptoCart{" "}
-            <span className=" font-poppins-regular text-[32px]">Dashboard</span>
+            <span className=" font-poppins-regular text-[25px] sm:text-[30px] lg:text-[32px]">
+              Dashboard
+            </span>
           </div>
         </div>
-        <div className=" flex justify-end relative top-[-50px]  items-center  gap-5">
-          <div className=" w-[40px] h-[40px] rounded-full bg-[#D9D9D9] dark:bg-[#333333] flex items-center justify-center p-2">
+        <div className="flex lg:justify-end justify-center lg:relative lg:top-[-50px]  items-center  gap-5 mb-5 lg:mb-0">
+          <div className=" w-[40px] h-[40px] rounded-full bg-[#D9D9D9] dark:bg-[#333333] flex items-center justify-center p-2  ">
             <Image src={logoLight} alt="" className=" hidden dark:block" />
             <Image src={logoDark} alt="" className=" dark:hidden" />
           </div>
@@ -47,18 +49,18 @@ export default function Home() {
         </div>
         <div className=" flex flex-col gap-10">
           <TotalRevenue />
-          <div className=" flex justify-between ">
+          <div className=" flex justify-between flex-col lg:flex-row gap-5 lg:gap-0 ">
             <TotalOrdersCard />
             <TotalCustomers />
             <WebsiteVisits />
           </div>
-          <div className=" flex">
+          <div className=" flex flex-col lg:flex-row gap-5 lg:gap-0">
             <TotalOrders />
             <Bestselling />
           </div>
-          <div className=" flex">
-            <NewCustomers/>
-            <UserBase/>
+          <div className=" flex flex-col lg:flex-row gap-5 lg:gap-0 ">
+            <NewCustomers />
+            <UserBase />
           </div>
           <LatestOrders />
         </div>

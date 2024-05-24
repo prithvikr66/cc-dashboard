@@ -16,7 +16,7 @@ const fetchTotalOrders = async () => {
 const WebsiteVisits = async () => {
   const totalOrders = await fetchTotalOrders();
   return (
-    <div className=" h-[120px] bg-white dark:bg-[#0D0D0D] w-1/3 rounded-[16px] ml-10 shadow-lg dark:shadow-2xl">
+    <div className=" h-[120px] bg-white dark:bg-[#0D0D0D] w-full lg:w-1/3 rounded-[16px] lg:ml-10 shadow-lg dark:shadow-2xl">
       <div className="p-6">
         <div className=" flex items-center justify-between">
           <div>
