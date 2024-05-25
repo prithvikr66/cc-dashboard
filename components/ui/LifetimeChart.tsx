@@ -28,7 +28,7 @@ ChartJS.register(
 
 defaults.font.family = "poppins-bold";
 // const BASE_URI = "http://localhost:3000";
-const BASE_URI = "https://cc-dashboard-opal.vercel.app/"
+const BASE_URI = "https://cc-dashboard-opal.vercel.app/";
 export default function LifetimeChart({
   labels,
   datas,
@@ -52,7 +52,7 @@ export default function LifetimeChart({
 
   const fetchLatestData = async (filter: string) => {
     try {
-      console.log(filter)
+      console.log(filter);
       const response = await axios.get(
         `${BASE_URI}/api/TotalRevenue?interval=${filter}`
       );
@@ -137,7 +137,7 @@ export default function LifetimeChart({
             </p>
           </div>
           <div>
-            <RevenueFilterButton onChangeHandler={fetchLatestData}/>
+            <RevenueFilterButton onChangeHandler={fetchLatestData} />
           </div>
         </div>
         <div>

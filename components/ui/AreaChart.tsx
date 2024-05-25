@@ -143,10 +143,10 @@ export default function AreaChart({
         <Line data={data} options={options} />
       </div>
 
-      <div className=" w-4/5 mx-auto h-[40px] 2xl:h-[50px] bg-[#E7EBF0] dark:bg-[#192028] rounded-[200px] mt-3 flex flex-col  justify-center">
+      <div className=" w-4/5 mx-auto h-[40px] 2xl:h-[50px] bg-[#E7EBF0] dark:bg-[#192028] rounded-[100px] mt-3 flex flex-col  justify-center">
         <div className=" flex justify-between items-center">
           <div
-            className={`bg-[#0C191E] dark:bg-[#ffffff] h-[40px] 2xl:h-[50px] w-1/5 flex items-center justify-center rounded-[200px] cursor-pointer  ${
+            className={`bg-[#0C191E] dark:bg-[#ffffff] h-[40px] 2xl:h-[50px] w-1/5 flex items-center justify-center rounded-[100px] cursor-pointer  ${
               active === "Today"
                 ? " bg-opacity-100 dark:bg-opacity-100 text-[#FFFFFF] dark:text-[#0D0D0D]"
                 : "bg-opacity-0 dark:bg-opacity-0 text-[#8F95B2]"
