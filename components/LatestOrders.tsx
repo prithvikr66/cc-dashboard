@@ -1,5 +1,4 @@
 import axios from "axios";
-import { IoSearch } from "react-icons/io5";
 const fetchLatestOrders = async () => {
   try {
     const response = await axios.get(
@@ -13,7 +12,14 @@ const fetchLatestOrders = async () => {
 };
 
 const LatestOrders = async () => {
+  function formatDate(inputDate: "string") {
+    const date = new Date(inputDate);
+    const options: any = { month: "long", day: "numeric" };
+    return date.toLocaleDateString("en-US", options);
+  }
+
   const latestOrders = await fetchLatestOrders();
+
   return (
     <div className=" w-full bg-[#ffffff] dark:bg-[#0D0D0D] h-[450px] rounded-[16px]  shadow-lg dark:shadow-2xl mb-16 overflow-y-auto overflow-x-auto">
       <div className="p-7 flex flex-col gap-5">
@@ -63,7 +69,7 @@ const LatestOrders = async () => {
               <div className=" flex justify-between items-center">
                 <div className=" flex items-center">
                   <p className=" font-poppins-medium text-[#0C191E] dark:text-white text-[12px] md:text-[16px]">
-                    March 26
+                    {formatDate(order.orderDate)}
                   </p>
                 </div>
                 <div className=" flex flex-col md:flex-row md:justify-center gap-2 items-center w-[350px]  ">
