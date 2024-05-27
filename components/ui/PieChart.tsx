@@ -3,7 +3,6 @@ import { Pie } from "react-chartjs-2";
 import { Chart, ArcElement, Tooltip, Legend, defaults } from "chart.js";
 import Image from "next/image";
 import starIcon from "../../public/icons/star.svg";
-
 Chart.register(ArcElement, Tooltip, Legend);
 defaults.font.family = "poppins-medium";
 
@@ -16,13 +15,13 @@ interface ChartData {
 }
 
 const PieChart = ({ chartData }: { chartData: any }) => {
-  const combinedData = chartData.labels.map((label:any, index:any) => ({
+  const combinedData = chartData.labels.map((label: any, index: any) => ({
     label,
     data: chartData.datasets[0].data[index],
     backgroundColor: chartData.datasets[0].backgroundColor[index],
   }));
 
-  combinedData.sort((a:any, b:any) => b.data - a.data);
+  combinedData.sort((a: any, b: any) => b.data - a.data);
 
   const top5Data = combinedData.slice(0, 5);
 
@@ -33,23 +32,12 @@ const PieChart = ({ chartData }: { chartData: any }) => {
       legend: {
         display: true,
         position: "bottom",
+        
         labels: {
-          color: "#8F95B2",
           font: {
             size: 14,
           },
           padding: 15,
-          generateLabels: (chart:any) => {
-            const data = chart.data;
-            return data.labels.map((label:any, index:any) => ({
-              text: label,
-              fillStyle: data.datasets[0].backgroundColor[index],
-              hidden: false,
-              index: index
-            })).filter((labelItem:any) => {
-              return top5Data.some((item:any) => item.label === labelItem.text);
-            });
-          },
         },
       },
       tooltip: {

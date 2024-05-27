@@ -2,7 +2,7 @@ import axios from "axios";
 import PieChart from "./ui/PieChart";
 type SegmentData = {
   segmentName: string;
-  segmentTotal: string;
+  segmentTotal: number;
 };
 
 const fetchBestSelling = async () => {
@@ -11,7 +11,11 @@ const fetchBestSelling = async () => {
       "https://staging-reportingapi.cryptocart.cc/summary"
     );
     const data = await response.data;
-    return data.bestSellingByCategory.items;
+    const items = data.bestSellingByCategory.items;
+    const sortedItems = items
+      .sort((a: SegmentData, b: SegmentData) => b.segmentTotal - a.segmentTotal)
+      .slice(0, 5);
+    return sortedItems;
   } catch (err) {
     console.log(err);
   }
@@ -25,20 +29,11 @@ const Bestselling = async () => {
       {
         data: bestSellingData?.map((item) => item.segmentTotal),
         backgroundColor: [
-          "#6432F7",
-          "#C1ADFC",
-          "#9375FF",
-          "#CD5069",
-          "#55B2FF",
-          "#55FFA5",
-          "#9375FF",
-          "#F41DEB",
-          "#FFDF5C",
-          "#48E640",
-          "#B943F0",
-          "#FCFEB2",
-          "#FF5352",
-          "#FCFEB2",
+          "#FF5E5D",
+          "#FFDF5F",
+          "#4DAEFF",
+          "#9173FF",
+          "#57FFA6",
         ],
         borderWidth: 0,
         borderAlign: "inner",
