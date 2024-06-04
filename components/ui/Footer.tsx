@@ -6,9 +6,9 @@ import { SiMaterialformkdocs } from "react-icons/si";
 import whiteLogo from "@/public/cc-logo-white.svg";
 const Footer = () => {
   return (
-    <div className=" bg-[#0C191E] min-h-[500px]">
+    <div className=" bg-[#0C191E] min-h-[600px]">
       <div className=" w-4/5 mx-auto ">
-        <div className=" p-5">
+        <div className=" p-10">
           <div className=" flex md:items-center items-start  flex-col md:flex-row gap-[10px] md:gap-[40px]">
             <h3 className=" text-[#ffffff] font-poppins-bold text-[25px]">
               Join our community{" "}
@@ -32,23 +32,23 @@ const Footer = () => {
             </div>
           </div>
           {/* ----------------------------------------- */}
-          <div className=" flex flex-col md:flex-row md:h-[450px] mt-10 w-3/4 mx-auto justify-between gap-4">
+          <div className=" flex flex-col md:flex-row md:h-[450px] mt-10 w-full mx-auto justify-center gap-10">
             <div className=" hidden md:block">
-              <div className=" flex flex-col justify-between  h-full">
-                <div className=" flex items-center gap-5 ">
+              <div className=" flex flex-col gap-[350px]  h-full ">
+                <div className=" flex items-center gap-5   ">
                   <div className=" text-white  ">
                     <h4 className=" text-[25px] font-poppins-bold">
                       cryptocart
                     </h4>
-                    <p className=" text-[15px] font-poppins-regular text-end">
+                    <p className=" text-[13px] font-poppins-regular text-end">
                       pay your way
                     </p>
                   </div>
                   <div>
-                    <Image src={whiteLogo} alt="" className=" w-1/2 h-auto" />
+                    <Image src={whiteLogo} alt="" className=" w-[60px] h-[60px]  " />
                   </div>
                 </div>
-                <div className=" text-white font-poppins-regular text-[15px]">
+                <div className=" text-white flex flex-col font-poppins-regular text-[13px] ">
                   <p>Copyright © 2024 Cryptocart.</p>
                   <p>All rights reserved.</p>
                 </div>
@@ -56,7 +56,7 @@ const Footer = () => {
             </div>
             <div className=" bg-[#48E640] w-[2px] h-full my-auto" />
             <div className=" flex  flex-col gap-[10px] md:gap-[50px]">
-              <div className=" text-white text-[18px] flex flex-col gap-2">
+              <div className=" text-white text-[14px] flex flex-col gap-2">
                 <p className=" font-poppins-bold">Here to help</p>
                 <Link
                   href={
@@ -70,7 +70,7 @@ const Footer = () => {
                   </p>
                 </Link>
               </div>
-              <div className=" text-white text-[18px] flex flex-col gap-2">
+              <div className=" text-white text-[14px] flex flex-col gap-1">
                 <p className=" font-poppins-bold">Policy</p>
                 <div className=" flex flex-col gap-[1px]">
                   <Link
@@ -102,7 +102,7 @@ const Footer = () => {
             </div>
             <div className=" bg-[#48E640] w-[2px] h-full my-auto" />
             <div className=" flex flex-col gap-7">
-              <div className=" text-white text-[18px] flex flex-col gap-2">
+              <div className=" text-white text-[14px] flex flex-col gap-2">
                 <p className=" font-poppins-bold">Join Community</p>
                 <div className="  flex flex-col gap-[1px]">
                   <Link
@@ -128,11 +128,11 @@ const Footer = () => {
                 </div>
               </div>
               {/* ------------------- */}
-              <div className=" text-white text-[18px] flex flex-col md:gap-2 ">
+              <div className=" text-white text-[14px] flex flex-col md:gap-2 ">
                 <p className=" font-poppins-bold">Explore CC Token</p>
                 <div className=" flex flex-col gap-[1px]">
                   <Link
-                    href={"https://twitter.com/CryptoCartCC"}
+                    href={"https://www.coingecko.com/en/coins/cryptocart"}
                     target="_blank"
                   >
                     <div className=" flex  items-center gap-2">
@@ -143,7 +143,12 @@ const Footer = () => {
                       </p>
                     </div>
                   </Link>
-                  <Link href={"https://t.me/cryptocartcc"} target="_blank">
+                  <Link
+                    href={
+                      "https://www.dextools.io/app/uniswap/pair-explorer/0x612e1726435fe38dd49a0b35b4065b56f49c8f11"
+                    }
+                    target="_blank"
+                  >
                     <div className=" flex  items-center gap-2">
                       <FaTelegramPlane className=" text-[#48E640]" />
                       <p className=" font-poppins-regular hover:opacity-80">
@@ -151,7 +156,10 @@ const Footer = () => {
                       </p>
                     </div>
                   </Link>
-                  <Link href={"https://t.me/cryptocartcc"} target="_blank">
+                  <Link
+                    href={"https://coinmarketcap.com/currencies/cryptocart-v2/"}
+                    target="_blank"
+                  >
                     <div className=" flex  items-center gap-2">
                       <FaTelegramPlane className=" text-[#48E640]" />
                       <p className=" font-poppins-regular hover:opacity-80">
@@ -163,15 +171,17 @@ const Footer = () => {
               </div>
             </div>
             <div className=" bg-[#48E640] w-[2px] h-full my-auto" />
-            <div className=" flex flex-col justify-between gap-5 md:gap-0">
+            <div className=" flex flex-col  gap-5 md:gap-10">
               <div className=" ">
-                <div className=" text-white text-[18px] flex flex-col gap-2">
+                <div className=" text-white text-[14px] flex flex-col gap-2">
                   <p className=" font-poppins-bold">Buy CC Token</p>
                   <p className=" font-poppins-bold">Ethereum</p>
 
                   <div className=" flex flex-col gap-[2px]">
                     <Link
-                      href={"https://twitter.com/CryptoCartCC"}
+                      href={
+                        "https://app.uniswap.org/swap?inputCurrency=ETH&outputCurrency=0x612e1726435fe38dd49a0b35b4065b56f49c8f11"
+                      }
                       target="_blank"
                     >
                       <div className=" flex  items-center gap-2">
@@ -181,7 +191,7 @@ const Footer = () => {
                       </div>
                     </Link>
                     <Link
-                      href={"https://twitter.com/CryptoCartCC"}
+                      href={"https://www.digifinex.com/en-ww/trade/USDT/CCV2"}
                       target="_blank"
                     >
                       <div className=" flex  items-center gap-2">
@@ -191,7 +201,9 @@ const Footer = () => {
                       </div>
                     </Link>
                     <Link
-                      href={"https://twitter.com/CryptoCartCC"}
+                      href={
+                        "https://app.1inch.io/#/1/swap/ETH/0x612e1726435fe38dd49a0b35b4065b56f49c8f11"
+                      }
                       target="_blank"
                     >
                       <div className=" flex  items-center gap-2">
@@ -201,7 +213,9 @@ const Footer = () => {
                       </div>
                     </Link>
                     <Link
-                      href={"https://twitter.com/CryptoCartCC"}
+                      href={
+                        "https://app.dodoex.io/?from=ETH&to=0x612e1726435fe38dd49a0b35b4065b56f49c8f11&network=mainnet"
+                      }
                       target="_blank"
                     >
                       <div className=" flex  items-center gap-2">
@@ -211,7 +225,9 @@ const Footer = () => {
                       </div>
                     </Link>
                     <Link
-                      href={"https://twitter.com/CryptoCartCC"}
+                      href={
+                        "https://app.rango.exchange/swap/ETH.ETH/ETH.CCV2--0x612e1726435fe38dd49a0b35b4065b56f49c8f11/?a=0"
+                      }
                       target="_blank"
                     >
                       <div className=" flex  items-center gap-2">
@@ -221,7 +237,9 @@ const Footer = () => {
                       </div>
                     </Link>
                     <Link
-                      href={"https://twitter.com/CryptoCartCC"}
+                      href={
+                        "https://app.paraswap.io/#/ETH-0x612e1726435fe38dd49a0b35b4065b56f49c8f11?network=ethereum"
+                      }
                       target="_blank"
                     >
                       <div className=" flex  items-center gap-2">
@@ -235,12 +253,14 @@ const Footer = () => {
               </div>
 
               <div>
-                <div className=" text-white text-[18px] flex flex-col gap-2">
+                <div className=" text-white text-[14px] flex flex-col gap-2">
                   <p className=" font-poppins-bold">Binance</p>
 
                   <div className=" flex flex-col  gap-[2px]">
                     <Link
-                      href={"https://twitter.com/CryptoCartCC"}
+                      href={
+                        "https://pancakeswap.finance/swap?chain=bsc&outputCurrency=0x612E1726435fE38dD49A0B35b4065B56f49c8F11"
+                      }
                       target="_blank"
                     >
                       <div className=" flex  items-center gap-2">
@@ -250,7 +270,9 @@ const Footer = () => {
                       </div>
                     </Link>
                     <Link
-                      href={"https://twitter.com/CryptoCartCC"}
+                      href={
+                        "https://pancakeswap.finance/swap?chain=bsc&outputCurrency=0x612E1726435fE38dD49A0B35b4065B56f49c8F11"
+                      }
                       target="_blank"
                     >
                       <div className=" flex  items-center gap-2">
@@ -260,7 +282,9 @@ const Footer = () => {
                       </div>
                     </Link>
                     <Link
-                      href={"https://twitter.com/CryptoCartCC"}
+                      href={
+                        "https://app.dodoex.io/?from=BNB&network=bsc-mainnet&to=0x612e1726435fe38dd49a0b35b4065b56f49c8f11"
+                      }
                       target="_blank"
                     >
                       <div className=" flex  items-center gap-2">
@@ -270,7 +294,9 @@ const Footer = () => {
                       </div>
                     </Link>
                     <Link
-                      href={"https://twitter.com/CryptoCartCC"}
+                      href={
+                        "https://app.rango.exchange/bridge?fromBlockchain=BSC&fromToken=BNB&toBlockchain=ETH&toToken=CCV2--0x612e1726435fe38dd49a0b35b4065b56f49c8f11&fromAmount=01"
+                      }
                       target="_blank"
                     >
                       <div className=" flex  items-center gap-2">
@@ -280,7 +306,9 @@ const Footer = () => {
                       </div>
                     </Link>
                     <Link
-                      href={"https://twitter.com/CryptoCartCC"}
+                      href={
+                        "https://app.paraswap.io/#/BNB-0x612e1726435fe38dd49a0b35b4065b56f49c8f11?network=BSC"
+                      }
                       target="_blank"
                     >
                       <div className=" flex  items-center gap-2">
