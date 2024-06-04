@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import RevenueFilterButton from "./RevenueFilterButton";
 import { Line } from "react-chartjs-2";
 import {
@@ -22,15 +22,26 @@ ChartJS.register(
   Tooltip,
   Legend
 );
+interface LineChartProps {
+  balances: number[];
+  months: string[];
+}
 
-const LineChart = () => {
+const LineChart: React.FC<LineChartProps> = ({ balances, months }) => {
+  const [chartData, setChartData] = useState<number[]>([]);
+  const [chartLabels, setChartLables] = useState<string[]>([]);
+
+  useEffect(() => {
+    setChartLables(months);
+    setChartData(balances);
+  }, []);
   const fetchLatestData = () => {};
   const data = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    labels: chartLabels,
     datasets: [
       {
-        label: "My First dataset",
-        data: [65, 59, 80, 81, 56, 55, 40],
+        label: "Wallet Balances",
+        data: chartData,
         fill: false,
         backgroundColor: "rgb(75, 192, 192)",
         borderColor: "rgba(75, 192, 192, 0.2)",
@@ -47,7 +58,7 @@ const LineChart = () => {
       },
       title: {
         display: true,
-        text: "Line Chart Example",
+        text: "Wallet Balances(USDT)",
       },
     },
     scales: {
@@ -65,16 +76,13 @@ const LineChart = () => {
   };
 
   return (
-    <div className=" w-full h-[400px] xl:h-[500px] rounded-[16px] bg-[#ffffff] dark:bg-[#0D0D0D] shadow-lg dark:shadow-2xl mb-10" >
+    <div className=" w-full h-[400px] xl:h-[500px] rounded-[16px] bg-[#ffffff] dark:bg-[#0D0D0D] shadow-lg dark:shadow-2xl mb-10">
       <div className=" p-7">
         <div className=" flex items-center justify-between">
           <div>
             <h3 className=" font-poppins-bold text-[32px] text-[#0C191E] dark:text-[#ffffff]">
-              123455
-            </h3>
-            <p className=" font-poppins-medium text-[16px] text-[#3D3D3D] dark:text-[#8F95B2]">
               Wallet Balance
-            </p>
+            </h3>
           </div>
           <div>
             <RevenueFilterButton onChangeHandler={fetchLatestData} />
