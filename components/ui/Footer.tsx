@@ -32,7 +32,7 @@ const Footer = () => {
             </div>
           </div>
           {/* ----------------------------------------- */}
-          <div className=" flex flex-col md:flex-row md:h-[450px] mt-10 w-full mx-auto justify-center gap-10">
+          <div className=" flex flex-col md:flex-row md:h-[450px] mt-10 w-full mx-auto justify-center gap-4 md:gap-10">
             <div className=" hidden md:block">
               <div className=" flex flex-col gap-[350px]  h-full ">
                 <div className=" flex items-center gap-5   ">
@@ -55,6 +55,7 @@ const Footer = () => {
               </div>
             </div>
             <div className=" bg-[#48E640] w-[2px] h-full my-auto" />
+            
             <div className=" flex  flex-col gap-[10px] md:gap-[50px]">
               <div className=" text-white text-[14px] flex flex-col gap-2">
                 <p className=" font-poppins-bold">Here to help</p>
