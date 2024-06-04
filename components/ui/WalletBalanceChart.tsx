@@ -35,7 +35,9 @@ const LineChart: React.FC<LineChartProps> = ({ balances, months }) => {
     setChartLables(months);
     setChartData(balances);
   }, []);
-  const fetchLatestData = () => {};
+  const fetchLatestData = () => {
+    
+  };
   const data = {
     labels: chartLabels,
     datasets: [
