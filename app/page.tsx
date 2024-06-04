@@ -14,6 +14,8 @@ import TotalOrders from "@/components/TotalOrders";
 import NewCustomers from "@/components/NewCustomers";
 import ellipse1 from "@/public/Ellipse 3.png";
 import ellipse2 from "@/public/Ellipse 4.png";
+import WalletBalance from "@/components/WalletBalance";
+import Footer from "@/components/ui/Footer";
 
 export default function Home() {
   return (
@@ -62,9 +64,13 @@ export default function Home() {
             <NewCustomers />
             <UserBase />
           </div>
-          <LatestOrders />
+          <div>
+            <LatestOrders />
+            {/* <WalletBalance /> */}
+          </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
