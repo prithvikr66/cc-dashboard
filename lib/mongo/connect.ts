@@ -1,7 +1,9 @@
 import { MongoClient } from "mongodb";
 export async function connectDB() {
-  const uri =
-    "mongodb+srv://pkunofficial66:vQKK0tp2BwGvTbyt@cluster0.ipl2iic.mongodb.net/";
+  const uri = process.env.MONGO_URI;
+  if (!uri) {
+    throw new Error("MONGO_URI environment variable is not defined");
+  }
   const client = new MongoClient(uri);
 
   try {
@@ -14,5 +16,3 @@ export async function connectDB() {
     console.error("MongoDB connection error:", err);
   }
 }
-
-

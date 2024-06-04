@@ -31,7 +31,7 @@ const fetchWalletBalanceOverAYear = async (): Promise<{ balances: number[]; mont
 
   } catch (err: any) {
     console.log(err.message)
-    throw err; // Rethrow the error to be caught by the caller
+    throw err; 
   }
 }
 const WalletBalance = async () => {
