@@ -67,6 +67,36 @@ export async function GET(req: NextRequest) {
         data,
         labels,
       });
+    } else if (interval === "Week") {
+      const database = await connectDB();
+      const MonthlyBalance = await database!.collection("MonthlyBalanceModels");
+
+      const today = new Date();
+      const oneWeekAgo = new Date(
+        today.getFullYear(),
+        today.getMonth(),
+        today.getDate() - 7
+      );
+
+      const oneWeekAgoIsoString = oneWeekAgo.toISOString();
+      const OneWeekBalances = await MonthlyBalance!
+        .find<WalletBalance>({
+          date: { $gte: oneWeekAgoIsoString },
+        })
+        .toArray();
+
+      const data = OneWeekBalances.map((balance) => balance.balance);
+      const labels = OneWeekBalances.map((day) => {
+        const date = new Date(day.date);
+        const options: Intl.DateTimeFormatOptions = {
+          day: "2-digit",
+        };
+        return date.toLocaleDateString(undefined, options);
+      });
+      return NextResponse.json({
+        data,
+        labels,
+      });
     }
   } catch (err) {
     console.log(err);
