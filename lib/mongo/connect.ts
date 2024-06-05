@@ -10,8 +10,7 @@ export async function connectDB() {
     await client.connect();
     console.log("Connected to MongoDB");
     const database = client.db("test");
-    const YearlyBalance = await database.collection("YearlyBalanceModels");
-    return YearlyBalance;
+    return database;
   } catch (err) {
     console.error("MongoDB connection error:", err);
   }

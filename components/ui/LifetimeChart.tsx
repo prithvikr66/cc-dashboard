@@ -52,7 +52,6 @@ export default function LifetimeChart({
 
   const fetchLatestData = async (filter: string) => {
     try {
-      console.log(filter);
       const response = await axios.get(
         `${BASE_URI}/api/TotalRevenue?interval=${filter}`
       );

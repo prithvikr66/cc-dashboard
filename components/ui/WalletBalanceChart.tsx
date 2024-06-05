@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import RevenueFilterButton from "./RevenueFilterButton";
 import { Line } from "react-chartjs-2";
+import axios from "axios";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -26,7 +27,8 @@ interface LineChartProps {
   balances: number[];
   months: string[];
 }
-
+const BASE_URI = "http://localhost:3000";
+// const BASE_URI = "https://cc-dashboard-opal.vercel.app/";
 const LineChart: React.FC<LineChartProps> = ({ balances, months }) => {
   const [chartData, setChartData] = useState<number[]>([]);
   const [chartLabels, setChartLables] = useState<string[]>([]);
@@ -35,8 +37,19 @@ const LineChart: React.FC<LineChartProps> = ({ balances, months }) => {
     setChartLables(months);
     setChartData(balances);
   }, []);
-  const fetchLatestData = () => {
-    
+  const fetchLatestData = async (filter: string) => {
+    try {
+      const response = await axios.get(
+        `${BASE_URI}/api/WalletBalance?interval=${filter}`
+      );
+
+      const data = await response.data;
+      console.log(data)
+      setChartData(data.data);
+      setChartLables(data.labels);
+    } catch (err: any) {
+      console.log(err.message);
+    }
   };
   const data = {
     labels: chartLabels,
@@ -63,15 +76,14 @@ const LineChart: React.FC<LineChartProps> = ({ balances, months }) => {
         text: "Wallet Balances(USDT)",
       },
       tooltip: {
-        
         enabled: true,
         callbacks: {
           label: (context: any) => {
-            const index = context.dataIndex; 
-            const label = chartLabels[index]; 
-            const value = chartData[index]; 
+            const index = context.dataIndex;
+            const label = chartLabels[index];
+            const value = chartData[index];
 
-            return `${label}: ${value}`; 
+            return `${label}: ${value}`;
           },
         },
       },
