@@ -77,7 +77,7 @@ const LineChart: React.FC<LineChartProps> = ({ balances, months }) => {
       },
       title: {
         display: true,
-        text: "Wallet Balances(USDT)",
+        text: "Wallet Balances(CCV2)",
       },
       tooltip: {
         enabled: true,
@@ -112,7 +112,7 @@ const LineChart: React.FC<LineChartProps> = ({ balances, months }) => {
         <div className=" flex items-center justify-between">
           <div>
             <h3 className=" font-poppins-bold text-[32px] text-[#0C191E] dark:text-[#ffffff]">
-              Wallet Balance (CCV2)
+              Wallet Balance
             </h3>
           </div>
           <div>
