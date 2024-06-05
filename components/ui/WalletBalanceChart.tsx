@@ -62,6 +62,19 @@ const LineChart: React.FC<LineChartProps> = ({ balances, months }) => {
         display: true,
         text: "Wallet Balances(USDT)",
       },
+      tooltip: {
+        
+        enabled: true,
+        callbacks: {
+          label: (context: any) => {
+            const index = context.dataIndex; 
+            const label = chartLabels[index]; 
+            const value = chartData[index]; 
+
+            return `${label}: ${value}`; 
+          },
+        },
+      },
     },
     scales: {
       x: {
