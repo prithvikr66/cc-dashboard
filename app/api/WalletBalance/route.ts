@@ -1,5 +1,4 @@
 import { NextResponse, NextRequest } from "next/server";
-import axios from "axios";
 import { connectDB } from "@/lib/mongo/connect";
 interface WalletBalance {
   date: string;
