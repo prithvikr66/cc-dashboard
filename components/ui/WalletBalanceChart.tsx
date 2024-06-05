@@ -13,6 +13,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import CircularIndeterminate from "./Loader";
 
 ChartJS.register(
   CategoryScale,
@@ -27,26 +28,29 @@ interface LineChartProps {
   balances: number[];
   months: string[];
 }
-// const BASE_URI = "http://localhost:3000";
-const BASE_URI = "https://cc-dashboard-opal.vercel.app/";
+const BASE_URI = "http://localhost:3000";
+// const BASE_URI = "https://cc-dashboard-opal.vercel.app/";
 const LineChart: React.FC<LineChartProps> = ({ balances, months }) => {
   const [chartData, setChartData] = useState<number[]>([]);
   const [chartLabels, setChartLables] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setChartLables(months);
     setChartData(balances);
   }, []);
   const fetchLatestData = async (filter: string) => {
+    setIsLoading(true);
     try {
       const response = await axios.get(
         `${BASE_URI}/api/WalletBalance?interval=${filter}`
       );
 
       const data = await response.data;
-      console.log(data)
+      console.log(data);
       setChartData(data.data);
       setChartLables(data.labels);
+      setIsLoading(false);
     } catch (err: any) {
       console.log(err.message);
     }
@@ -108,17 +112,29 @@ const LineChart: React.FC<LineChartProps> = ({ balances, months }) => {
         <div className=" flex items-center justify-between">
           <div>
             <h3 className=" font-poppins-bold text-[32px] text-[#0C191E] dark:text-[#ffffff]">
-              Wallet Balance
+              Wallet Balance (CCV2)
             </h3>
           </div>
           <div>
             <RevenueFilterButton onChangeHandler={fetchLatestData} />
           </div>
         </div>
-        <div>
-          <div className=" w-full h-[250px] xl:h-[350px]   ">
-            <Line data={data} options={options} />
-          </div>
+        <div
+          className={`${
+            isLoading
+              ? "flex items-center justify-center  mt-[100px] xl:mt-[150px]"
+              : ""
+          }`}
+        >
+          {isLoading ? (
+            <CircularIndeterminate />
+          ) : (
+            <div>
+              <div className="w-full h-[250px] xl:h-[350px]">
+                <Line data={data} options={options} />
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
