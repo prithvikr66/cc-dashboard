@@ -5,7 +5,7 @@ import usaflag from "@/public/flags/united-states-of-america.svg";
 import ukflag from "@/public/flags/united-kingdom.svg";
 import canadaflag from "@/public/flags/canada.svg";
 import germanyflag from "@/public/flags/germany.svg";
-import australiaflag from "@/public/flags/united-kingdom.svg";
+import australiaflag from "@/public/flags/australia-flag-icon.svg";
 import restOfTheWorldFlag from "@/public/flags/earth 1.svg";
 const flags = [usaflag, ukflag, canadaflag, germanyflag, australiaflag];
 
@@ -63,7 +63,7 @@ const UserBase = async () => {
     restOfTheWorldCount,
     restOfTheWorldPercentage,
   } = await fetchUserbase();
- let i = 0;
+  let i = 0;
   return (
     <div className="w-full lg:w-1/2 h-[440px] xl:h-[540px] rounded-[16px] bg-[#ffffff] dark:bg-[#0D0D0D] lg:ml-5 shadow-lg dark:shadow-2xl overflow-y-auto">
       <div className=" p-7">
