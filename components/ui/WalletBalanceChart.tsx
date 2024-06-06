@@ -15,6 +15,7 @@ import {
   Legend,
 } from "chart.js";
 import CircularIndeterminate from "./Loader";
+import Link from "next/link";
 
 ChartJS.register(
   CategoryScale,
@@ -102,7 +103,7 @@ const LineChart: React.FC<LineChartProps> = ({ balances, months }) => {
         display: false,
       },
       title: {
-        display: true,
+        display: false,
         text: "Tokens removed from circulation (CCV2)",
       },
       tooltip: {
@@ -145,6 +146,16 @@ const LineChart: React.FC<LineChartProps> = ({ balances, months }) => {
             <RevenueFilterButton onChangeHandler={fetchLatestData} />
           </div>
         </div>
+        <Link
+          href={
+            "https://etherscan.io/address/0x15e54c22f4195142222ed7130521e9636ec3ccec"
+          }
+          target="_blank"
+        >
+          <p className=" text-center font-poppins-medium">
+            Tokens removed from circulation (CCV2)
+          </p>
+        </Link>
         <div
           className={`${
             isLoading

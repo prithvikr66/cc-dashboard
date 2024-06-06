@@ -4,6 +4,9 @@ import { FaTwitter } from "react-icons/fa";
 import { FaTelegramPlane } from "react-icons/fa";
 import { SiMaterialformkdocs } from "react-icons/si";
 import whiteLogo from "@/public/cc-logo-white.svg";
+import coinMarketCapLogo from "@/public/icons/coin-market-cap.svg";
+import coingeckoLogo from "@/public/icons/coin-gecko.svg";
+import dextoolsLogo from "@/public/icons/dextools.svg";
 const Footer = () => {
   return (
     <div className=" bg-[#0C191E] min-h-[600px]">
@@ -45,7 +48,11 @@ const Footer = () => {
                     </p>
                   </div>
                   <div>
-                    <Image src={whiteLogo} alt="" className=" w-[60px] h-[60px]  " />
+                    <Image
+                      src={whiteLogo}
+                      alt=""
+                      className=" w-[60px] h-[60px]  "
+                    />
                   </div>
                 </div>
                 <div className=" text-white flex flex-col font-poppins-regular text-[13px] ">
@@ -55,7 +62,7 @@ const Footer = () => {
               </div>
             </div>
             <div className=" bg-[#48E640] w-[2px] h-full my-auto" />
-            
+
             <div className=" flex  flex-col gap-[10px] md:gap-[50px]">
               <div className=" text-white text-[14px] flex flex-col gap-2">
                 <p className=" font-poppins-bold">Here to help</p>
@@ -137,7 +144,11 @@ const Footer = () => {
                     target="_blank"
                   >
                     <div className=" flex  items-center gap-2">
-                      <FaTwitter className=" text-[#48E640]" />
+                      <Image
+                        src={coingeckoLogo}
+                        alt=""
+                        className=" w-[16px] h-[16px]"
+                      />
 
                       <p className=" font-poppins-regular hover:opacity-80">
                         Coin Gecko
@@ -151,7 +162,11 @@ const Footer = () => {
                     target="_blank"
                   >
                     <div className=" flex  items-center gap-2">
-                      <FaTelegramPlane className=" text-[#48E640]" />
+                      <Image
+                        src={dextoolsLogo}
+                        alt=""
+                        className=" w-[16px] h-[16px]"
+                      />
                       <p className=" font-poppins-regular hover:opacity-80">
                         Dextools
                       </p>
