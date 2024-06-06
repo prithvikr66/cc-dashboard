@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import RevenueFilterButton from "./RevenueFilterButton";
+import WalletBalanceFilterButton from "./WalletBalanceFilterButton";
 import { Line } from "react-chartjs-2";
 import { useTheme } from "next-themes";
 import axios from "axios";
@@ -143,7 +143,7 @@ const LineChart: React.FC<LineChartProps> = ({ balances, months }) => {
             </h3>
           </div>
           <div>
-            <RevenueFilterButton onChangeHandler={fetchLatestData} />
+            <WalletBalanceFilterButton onChangeHandler={fetchLatestData} />
           </div>
         </div>
         <Link
