@@ -69,7 +69,7 @@ const UserBase = async () => {
       <div className=" p-7">
         <div className=" flex items-center justify-between">
           <div>
-            <h3 className=" font-poppins-bold text-[32px] text-[#0C191E] dark:text-[#ffffff]">
+            <h3 className=" font-poppins-bold md:text-[32px] text-[25px] text-[#0C191E] dark:text-[#ffffff]">
               Userbase
             </h3>
             <p className=" font-poppins-medium text-[16px] text-[#3D3D3D] dark:text-[#8F95B2]">

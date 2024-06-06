@@ -50,7 +50,7 @@ const PieChart = ({ chartData }: { chartData: any }) => {
     <div className="">
       <div className="p-7">
         <div className="flex items-center justify-between">
-          <h3 className="font-poppins-bold text-[32px] text-[#0C191E] dark:text-[#ffffff]">
+          <h3 className="font-poppins-bold md:text-[32px] text-[25px] text-[#0C191E] dark:text-[#ffffff]">
             Best Selling
           </h3>
           <Image src={starIcon} alt="" />

@@ -20,7 +20,7 @@ const WebsiteVisits = async () => {
       <div className="p-6">
         <div className=" flex items-center justify-between">
           <div>
-            <h3 className=" font-poppins-bold text-[32px] text-[#0C191E] dark:text-white">
+            <h3 className=" font-poppins-bold md:text-[32px] text-[25px] text-[#0C191E] dark:text-white">
               24.26K
             </h3>
             <p className=" font-poppins-medium text-[16px] text-[#0C191E] dark:text-white">
