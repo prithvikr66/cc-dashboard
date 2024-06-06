@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import RevenueFilterButton from "./RevenueFilterButton";
 import { Line } from "react-chartjs-2";
+import { useTheme } from "next-themes";
 import axios from "axios";
 import {
   Chart as ChartJS,
@@ -31,6 +32,8 @@ interface LineChartProps {
 // const BASE_URI = "http://localhost:3000";
 const BASE_URI = "https://cc-dashboard-opal.vercel.app/";
 const LineChart: React.FC<LineChartProps> = ({ balances, months }) => {
+  const { theme } = useTheme();
+
   const [chartData, setChartData] = useState<number[]>([]);
   const [chartLabels, setChartLables] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -59,11 +62,34 @@ const LineChart: React.FC<LineChartProps> = ({ balances, months }) => {
     labels: chartLabels,
     datasets: [
       {
-        label: "Wallet Balances",
+        label: "Data",
         data: chartData,
-        fill: false,
-        backgroundColor: "rgb(75, 192, 192)",
-        borderColor: "rgba(75, 192, 192, 0.2)",
+        fill: true,
+        backgroundColor: function (context: any) {
+          const ctx = context.chart.ctx;
+          const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+          if (theme === "light") {
+            gradient.addColorStop(0, "#49E641");
+            gradient.addColorStop(0.2, "#49E641");
+            gradient.addColorStop(0.4, "#71EC6B");
+            gradient.addColorStop(0.6, "#A9F3A5");
+            gradient.addColorStop(0.8, "#E2FBE1");
+            gradient.addColorStop(1, "#FAFEFA");
+            return gradient;
+          } else {
+            gradient.addColorStop(0, "#48E640");
+            gradient.addColorStop(0.2, "#48E640");
+            gradient.addColorStop(0.4, "#57C752");
+            gradient.addColorStop(0.6, "#5DA25A");
+            gradient.addColorStop(0.8, "#3C453C");
+            gradient.addColorStop(1, "#151515");
+            return gradient;
+          }
+        },
+        borderColor: "#F41DEB",
+        borderWidth: 0,
+        pointRadius: 0,
+        tension: 0.4,
       },
     ],
   };
