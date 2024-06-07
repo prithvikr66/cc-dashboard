@@ -16,6 +16,7 @@ import ellipse1 from "@/public/Ellipse 3.png";
 import ellipse2 from "@/public/Ellipse 4.png";
 import WalletBalance from "@/components/WalletBalance";
 import Footer from "@/components/ui/Footer";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -43,10 +44,12 @@ export default function Home() {
           </div>
         </div>
         <div className="flex lg:justify-end justify-center lg:relative lg:top-[-50px]  items-center  gap-5 mb-5 lg:mb-0">
-          <div className=" w-[40px] h-[40px] rounded-full bg-[#D9D9D9] dark:bg-[#333333] flex items-center justify-center p-2  ">
-            <Image src={logoLight} alt="" className=" hidden dark:block" />
-            <Image src={logoDark} alt="" className=" dark:hidden" />
-          </div>
+          <Link href={"https://giftcards.cryptocart.cc"} target="_blank">
+            <div className=" w-[40px] h-[40px] rounded-full bg-[#D9D9D9] dark:bg-[#333333] flex items-center justify-center p-2  ">
+              <Image src={logoLight} alt="" className=" hidden dark:block" />
+              <Image src={logoDark} alt="" className=" dark:hidden" />
+            </div>
+          </Link>
           <ModeToggle />
         </div>
         <div className=" flex flex-col gap-10">
