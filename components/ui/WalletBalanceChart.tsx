@@ -30,8 +30,7 @@ interface LineChartProps {
   balances: number[];
   months: string[];
 }
-// const BASE_URI = "http://localhost:3000";
-const BASE_URI = "https://cc-dashboard-opal.vercel.app/";
+const BASE_URI = process.env.BASE_URI;
 const LineChart: React.FC<LineChartProps> = ({ balances, months }) => {
   const { theme } = useTheme();
 

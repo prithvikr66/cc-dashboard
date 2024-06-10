@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import axios from "axios";
 import { useTheme } from "next-themes";
-import cartIcon from "@/public/icons/shopping-cart.svg"
+import cartIcon from "@/public/icons/shopping-cart.svg";
 import Image from "next/image";
 import {
   Chart as ChartJS,
@@ -27,16 +27,15 @@ ChartJS.register(
 );
 
 defaults.font.family = "poppins-bold";
-// const BASE_URI = "http://localhost:3000"
-const BASE_URI = "https://cc-dashboard-opal.vercel.app/"
+const BASE_URI = process.env.BASE_URI;
 export default function AreaChart({
   labels,
   datas,
-  totalOrdersProp
+  totalOrdersProp,
 }: {
   datas: any;
   labels: any;
-  totalOrdersProp:any
+  totalOrdersProp: any;
 }) {
   const [active, setActive] = useState("Year");
   const [chartLabels, setChartLabels] = useState([]);
@@ -48,7 +47,7 @@ export default function AreaChart({
   useEffect(() => {
     setChartData(datas);
     setChartLabels(labels);
-    setTotalOrders(totalOrdersProp)
+    setTotalOrders(totalOrdersProp);
   }, [datas, labels]);
 
   const fetchLatestData = async (filter: string) => {
@@ -139,69 +138,68 @@ export default function AreaChart({
           <Image src={cartIcon} alt="" />
         </div>
         <div>
-      <div className=" w-full h-[250px]  xl:h-[350px] ">
-        <Line data={data} options={options} />
-      </div>
+          <div className=" w-full h-[250px]  xl:h-[350px] ">
+            <Line data={data} options={options} />
+          </div>
 
-      <div className=" w-4/5 mx-auto h-[40px] 2xl:h-[50px] bg-[#E7EBF0] dark:bg-[#192028] rounded-[100px] mt-3 flex flex-col  justify-center">
-        <div className=" flex justify-between items-center">
-          <div
-            className={`bg-[#0C191E] dark:bg-[#ffffff] h-[40px] 2xl:h-[50px] w-1/5 flex items-center justify-center rounded-[100px] cursor-pointer  ${
-              active === "Today"
-                ? " bg-opacity-100 dark:bg-opacity-100 text-[#FFFFFF] dark:text-[#0D0D0D]"
-                : "bg-opacity-0 dark:bg-opacity-0 text-[#8F95B2]"
-            }  `}
-            onClick={() => {
-              setActive("Today");
-              fetchLatestData("Day");
-            }}
-          >
-            <p className=" font-poppins-medium text-[14px] ">Today</p>
-          </div>
-          <div
-            className={` ${
-              active === "Week"
-                ? " bg-opacity-100 dark:bg-opacity-100 text-[#FFFFFF] dark:text-[#0D0D0D]"
-                : "bg-opacity-0 dark:bg-opacity-0 text-[#8F95B2]"
-            }  bg-[#0C191E] dark:bg-[#ffffff] h-[40px] 2xl:h-[50px] w-1/5 flex items-center justify-center rounded-[200px] cursor-pointer`}
-            onClick={() => {
-              setActive("Week");
-              fetchLatestData("Week");
-            }}
-          >
-            <p className=" font-poppins-medium text-[14px] ">Week</p>
-          </div>
-          <div
-            className={` ${
-              active === "Month"
-                ? " bg-opacity-100 dark:bg-opacity-100 text-[#FFFFFF] dark:text-[#0D0D0D]"
-                : "bg-opacity-0 dark:bg-opacity-0 text-[#8F95B2] "
-            }  bg-[#0C191E] dark:bg-[#ffffff] h-[40px] 2xl:h-[50px] w-1/5 flex items-center justify-center rounded-[200px] cursor-pointer`}
-            onClick={() => {
-              setActive("Month");
-              fetchLatestData("Month");
-            }}
-          >
-            <p className=" font-poppins-medium text-[14px] ">Month</p>
-          </div>
-          <div
-            className={` ${
-              active === "Year"
-                ? " bg-opacity-100 dark:bg-opacity-100 text-[#FFFFFF] dark:text-[#0D0D0D]"
-                : "bg-opacity-0 dark:bg-opacity-0 text-[#8F95B2]"
-            }  bg-[#0C191E] dark:bg-[#ffffff] h-[40px] 2xl:h-[50px] w-1/5 flex items-center justify-center rounded-[200px] cursor-pointer`}
-            onClick={() => {
-              setActive("Year");
-              fetchLatestData("Year");
-            }}
-          >
-            <p className=" font-poppins-medium text-[14px] ">Year</p>
+          <div className=" w-4/5 mx-auto h-[40px] 2xl:h-[50px] bg-[#E7EBF0] dark:bg-[#192028] rounded-[100px] mt-3 flex flex-col  justify-center">
+            <div className=" flex justify-between items-center">
+              <div
+                className={`bg-[#0C191E] dark:bg-[#ffffff] h-[40px] 2xl:h-[50px] w-1/5 flex items-center justify-center rounded-[100px] cursor-pointer  ${
+                  active === "Today"
+                    ? " bg-opacity-100 dark:bg-opacity-100 text-[#FFFFFF] dark:text-[#0D0D0D]"
+                    : "bg-opacity-0 dark:bg-opacity-0 text-[#8F95B2]"
+                }  `}
+                onClick={() => {
+                  setActive("Today");
+                  fetchLatestData("Day");
+                }}
+              >
+                <p className=" font-poppins-medium text-[14px] ">Today</p>
+              </div>
+              <div
+                className={` ${
+                  active === "Week"
+                    ? " bg-opacity-100 dark:bg-opacity-100 text-[#FFFFFF] dark:text-[#0D0D0D]"
+                    : "bg-opacity-0 dark:bg-opacity-0 text-[#8F95B2]"
+                }  bg-[#0C191E] dark:bg-[#ffffff] h-[40px] 2xl:h-[50px] w-1/5 flex items-center justify-center rounded-[200px] cursor-pointer`}
+                onClick={() => {
+                  setActive("Week");
+                  fetchLatestData("Week");
+                }}
+              >
+                <p className=" font-poppins-medium text-[14px] ">Week</p>
+              </div>
+              <div
+                className={` ${
+                  active === "Month"
+                    ? " bg-opacity-100 dark:bg-opacity-100 text-[#FFFFFF] dark:text-[#0D0D0D]"
+                    : "bg-opacity-0 dark:bg-opacity-0 text-[#8F95B2] "
+                }  bg-[#0C191E] dark:bg-[#ffffff] h-[40px] 2xl:h-[50px] w-1/5 flex items-center justify-center rounded-[200px] cursor-pointer`}
+                onClick={() => {
+                  setActive("Month");
+                  fetchLatestData("Month");
+                }}
+              >
+                <p className=" font-poppins-medium text-[14px] ">Month</p>
+              </div>
+              <div
+                className={` ${
+                  active === "Year"
+                    ? " bg-opacity-100 dark:bg-opacity-100 text-[#FFFFFF] dark:text-[#0D0D0D]"
+                    : "bg-opacity-0 dark:bg-opacity-0 text-[#8F95B2]"
+                }  bg-[#0C191E] dark:bg-[#ffffff] h-[40px] 2xl:h-[50px] w-1/5 flex items-center justify-center rounded-[200px] cursor-pointer`}
+                onClick={() => {
+                  setActive("Year");
+                  fetchLatestData("Year");
+                }}
+              >
+                <p className=" font-poppins-medium text-[14px] ">Year</p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div> 
       </div>
     </div>
   );
 }
-

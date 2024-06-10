@@ -29,9 +29,7 @@ interface BarChartProps {
   totalUsers: number;
 }
 
-// const BASE_URI = "http://localhost:3000";
-const BASE_URI = "https://cc-dashboard-opal.vercel.app/"
-
+const BASE_URI = process.env.BASE_URI;
 
 const BarChart: React.FC<BarChartProps> = ({
   chartData,
@@ -82,7 +80,7 @@ const BarChart: React.FC<BarChartProps> = ({
     },
     plugins: {
       legend: {
-        display:false,
+        display: false,
         position: "top",
       },
       title: {
